@@ -82,4 +82,5 @@ function womenState(state) {
   }
 }
 
+
 export default connect(womenState, {})(Women)
