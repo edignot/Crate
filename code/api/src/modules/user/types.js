@@ -2,6 +2,8 @@
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 
 // User type
+// defines user type
+// will need shipping address, crate subscriptions, products delivered, products kept
 const UserType = new GraphQLObjectType({
   name: 'user',
   description: 'User type',

@@ -12,3 +12,5 @@ const schema = new GraphQLSchema({
 })
 
 export default schema
+
+// creates schema based on query and mutation definitions

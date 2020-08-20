@@ -20,6 +20,9 @@ import userRoutes from '../../setup/routes/user'
 import { logout } from './api/actions'
 
 // Component
+// renders Profile component
+// receives user as a prop from the store to display in H4 and p tag
+// receives logout fn as a prop from the store and passes it to Button component
 const Profile = (props) => (
   <div>
     {/* SEO */}

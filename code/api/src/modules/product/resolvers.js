@@ -3,12 +3,15 @@ import params from '../../config/params'
 import models from '../../setup/models'
 
 // Get all products
+// gets all products from schema
 export async function getAll() {
   return await models.Product.findAll({ order: [['id', 'DESC']] })
 }
 
 // Get product by slug
 export async function getBySlug(parentValue, { slug }) {
+  // awaits find method given slug
+  // if no product then return a message, else return the product that matches slug
   const product = await models.Product.findOne({ where: { slug } })
 
   if (!product) {
@@ -20,6 +23,9 @@ export async function getBySlug(parentValue, { slug }) {
 }
 
 // Get product by ID
+// finds a product given an id
+// throws error if it cannot find a product, 
+// returns the product otherwise
 export async function getById(parentValue, { productId }) {
   const product = await models.Product.findOne({ where: { id: productId } })
 
@@ -32,6 +38,8 @@ export async function getById(parentValue, { productId }) {
 }
 
 // Get related products
+// gets list of all related products
+// returns 3 randomly organized products from list
 export async function getRelated(parentValue, { productId }) {
   return await models.Product.findAll({
     where: {
@@ -43,6 +51,7 @@ export async function getRelated(parentValue, { productId }) {
 }
 
 // Create product
+// allows only admin to create new products
 export async function create(parentValue, { name, slug, description, type, gender, image }, { auth }) {
   if(auth.user && auth.user.role === params.user.roles.admin) {
     return await models.Product.create({
@@ -59,6 +68,7 @@ export async function create(parentValue, { name, slug, description, type, gende
 }
 
 // Update product
+// allows only admin to update product info
 export async function update(parentValue, { id, name, slug, description, type, gender, image }, { auth }) {
   if(auth.user && auth.user.role === params.user.roles.admin) {
     return await models.Product.update(
@@ -78,6 +88,10 @@ export async function update(parentValue, { id, name, slug, description, type, g
 }
 
 // Delete product
+// allows only admin to delete a product
+// finds product based on id
+// if no product, throw error,
+// otherwise return and delete that product
 export async function remove(parentValue, { id }, { auth }) {
   if(auth.user && auth.user.role === params.user.roles.admin) {
     const product = await models.Product.findOne({where: {id}})
@@ -94,6 +108,7 @@ export async function remove(parentValue, { id }, { auth }) {
 }
 
 // Product types
+// returns product types
 export async function getTypes() {
   return Object.values(params.product.types)
 }

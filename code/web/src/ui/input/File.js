@@ -10,6 +10,8 @@ import Icon from '../icon'
 
 // Component
 const File = (props) => {
+  // text and name are most important props to be using
+  //not sure what style is doing since styling is taken care of below... 
   const { text, style, name, ...other } = props
 
   return (

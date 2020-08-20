@@ -6,6 +6,8 @@ import CrateType from './types'
 import { getAll, getById } from './resolvers'
 
 // Crates All
+// gets all crates
+// can get by orderBy argument?
 export const crates = {
   type: new GraphQLList(CrateType),
   args: {
@@ -15,6 +17,7 @@ export const crates = {
 }
 
 // Crate By ID
+// gets crate given an id
 export const crateById = {
   type: CrateType,
   args: {

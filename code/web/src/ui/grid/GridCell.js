@@ -16,6 +16,7 @@ const GridCell = (props) => {
   } = props
 
   return (
+    // gives div all additional props and renders style according to props
     <div {...others}>
       {children}
 

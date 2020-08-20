@@ -2,6 +2,7 @@
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 
 // Product type
+// shape of product type
 const ProductType = new GraphQLObjectType({
   name: 'product',
   description: 'Product Type',
@@ -20,6 +21,7 @@ const ProductType = new GraphQLObjectType({
 })
 
 // User Gender type
+// shape of gender type
 const ProductTypesType = new GraphQLObjectType({
   name: 'productTypesType',
   description: 'User Types Type',

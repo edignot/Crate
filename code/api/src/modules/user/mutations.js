@@ -6,6 +6,8 @@ import { UserType } from './types'
 import { create, remove } from './resolvers'
 
 // Create
+// creating a new user
+// add shipping address here?
 export const userSignup = {
   type: UserType,
   args: {
@@ -28,6 +30,7 @@ export const userSignup = {
 }
 
 // Remove
+// deletes user from db using id
 export const userRemove = {
   type: UserType,
   args: {

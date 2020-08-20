@@ -15,6 +15,7 @@ export const LOGOUT = 'AUTH/LOGOUT'
 // Actions
 
 // Set a user after login or using localStorage token
+// sets user regardless, but sets axios.defaults.headers.common or deletes depending on token
 export function setUser(token, user) {
   if (token) {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
@@ -26,6 +27,8 @@ export function setUser(token, user) {
 }
 
 // Login a user using credentials
+// returns a whole fn, dispatches LOGIN_REQUEST action with isLoading defaulting to true
+// returns an axios.post fn for login
 export function login(userCredentials, isLoading = true) {
   return dispatch => {
     dispatch({
@@ -41,8 +44,12 @@ export function login(userCredentials, isLoading = true) {
       .then(response => {
         let error = ''
 
+        // if there is an error then error is set to that message
         if (response.data.errors && response.data.errors.length > 0) {
           error = response.data.errors[0].message
+        // sets value of token and user if the login token isnt an empty string
+        // calls setUser with the assigned values
+        // saves user and token to localStorage
         } else if (response.data.data.userLogin.token !== '') {
           const token = response.data.data.userLogin.token
           const user = response.data.data.userLogin.user
@@ -77,6 +84,8 @@ export function loginSetUserLocalStorageAndCookie(token, user) {
 }
 
 // Register a user
+// why dispatch?
+// posts new user 
 export function register(userDetails) {
   return dispatch => {
     return axios.post(routeApi, mutation({
@@ -109,6 +118,8 @@ export function logoutUnsetUserLocalStorageAndCookie() {
 }
 
 // Get user gender
+// called get but posts?  
+// are these posts used to eventually get data?
 export function getGenders() {
   return dispatch => {
     return axios.post(routeApi, query({

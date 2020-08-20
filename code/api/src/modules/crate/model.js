@@ -1,5 +1,6 @@
 'use strict'
 
+// each crate has a name and a description
 module.exports = function(sequelize, DataTypes) {
   let Crate = sequelize.define('crates', {
     name: {

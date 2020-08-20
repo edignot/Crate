@@ -8,7 +8,7 @@ import { grey2, grey4, black } from '../common/colors'
 // Component
 const Textarea = (props) => {
   const { children, fullWidth, ...other } = props
-
+  // receives props and destructures for styling
   return (
     <span>
       <textarea {...other}>{children}</textarea>

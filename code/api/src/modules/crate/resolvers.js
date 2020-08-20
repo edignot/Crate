@@ -20,6 +20,7 @@ export async function getAll(parentValue, { orderBy }) {
 }
 
 // Create crate
+// allows only admin to create a new crate
 export async function create(parentValue, { name, description }, { auth }) {
   if(auth.user && auth.user.role === params.user.roles.admin) {
     return await models.Crate.create({
@@ -32,6 +33,7 @@ export async function create(parentValue, { name, description }, { auth }) {
 }
 
 // Update crate
+// allows only admin to update crates given an id
 export async function update(parentValue, { id, name, description }, { auth }) {
   if(auth.user && auth.user.role === params.user.roles.admin) {
     return await models.Crate.update(
@@ -47,6 +49,7 @@ export async function update(parentValue, { id, name, description }, { auth }) {
 }
 
 // Delete crate
+// allows only admin to delete crates given an id
 export async function remove(parentValue, { id }, { auth }) {
   if(auth.user && auth.user.role === params.user.roles.admin) {
     return await models.Crate.destroy({where: {id}})

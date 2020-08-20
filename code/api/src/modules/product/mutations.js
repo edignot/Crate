@@ -6,6 +6,7 @@ import { ProductType } from './types'
 import { create, update, remove } from './resolvers'
 
 // Product create
+// creates new product
 export const productCreate = {
   type: ProductType,
   args: {
@@ -43,6 +44,7 @@ export const productCreate = {
 }
 
 // Product update
+// updates a product's details
 export const productUpdate = {
   type: ProductType,
   args: {
@@ -85,6 +87,7 @@ export const productUpdate = {
 }
 
 // Product remove
+// deletes product from inventory given an id
 export const productRemove = {
   type: ProductType,
   args: {

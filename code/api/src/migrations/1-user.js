@@ -33,3 +33,5 @@ module.exports = {
     return queryInterface.dropTable('users');
   }
 }
+
+// defines rules for model

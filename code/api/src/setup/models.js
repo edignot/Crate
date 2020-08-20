@@ -21,3 +21,6 @@ models.sequelize = databaseConnection
 models.Sequelize = Sequelize
 
 export default models
+
+// brings in models from all modules and connects them to database
+// model is what would be found in a db table

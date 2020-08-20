@@ -21,3 +21,5 @@ const query = new GraphQLObjectType({
 })
 
 export default query
+
+// defines query for all modules

@@ -21,6 +21,8 @@ const appReducer = combineReducers({
 })
 
 // Root Reducer
+// goes through reducers and sets state to undefined if action type is reset, returning initial state
+// why not just dispatch the reset action instead of returning appReducer?  seems extra
 export const rootReducer = (state, action) => {
   if (action.type === 'RESET') {
     state = undefined
@@ -30,6 +32,8 @@ export const rootReducer = (state, action) => {
 }
 
 // Load initial state from server side
+// why set initial state to the value and then delete?  
+// where is initial state defined?  what is that?
 let initialState
 if (typeof window !== 'undefined') {
   initialState = window.__INITIAL_STATE__
@@ -37,6 +41,7 @@ if (typeof window !== 'undefined') {
 }
 
 // Store
+// store adds initial state from above?
 export const store = createStore(
   rootReducer,
   initialState,

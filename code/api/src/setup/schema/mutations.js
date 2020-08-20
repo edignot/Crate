@@ -21,3 +21,5 @@ const mutation = new GraphQLObjectType({
 })
 
 export default mutation
+
+// defines mutation for all modules

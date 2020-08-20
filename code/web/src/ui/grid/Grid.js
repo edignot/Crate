@@ -18,6 +18,8 @@ const Grid = (props) => {
     ...others
   } = props
 
+  // React.Children.map maps over children if it is an array
+  // React.cloneElement clones GridCell and gives it a gutter prop
   const GridCells = React.Children.map(children, (GridCell) => {
     if (!GridCell) {
       return null

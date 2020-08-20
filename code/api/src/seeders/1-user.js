@@ -30,3 +30,6 @@ module.exports = {
     return queryInterface.bulkDelete('users', null, {});
   }
 }
+
+// creates seed data for generic user and admin profiles
+// what is the up down part?

@@ -37,3 +37,5 @@ module.exports = {
     return queryInterface.dropTable('subscriptions');
   }
 }
+
+// defines rules for model

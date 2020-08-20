@@ -46,3 +46,5 @@ module.exports = {
     return queryInterface.bulkDelete('crates', null, {});
   }
 }
+
+// creates seed data based on crate model

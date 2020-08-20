@@ -6,6 +6,7 @@ import CrateType from './types'
 import { create, remove, update } from './resolvers'
 
 // Crate create
+// creates a new crate with the name and description args
 export const crateCreate = {
   type: CrateType,
   args: {
@@ -23,6 +24,8 @@ export const crateCreate = {
 }
 
 // Crate update
+// updates a crate
+// needs id, name, description args
 export const crateUpdate = {
   type: CrateType,
   args: {
@@ -45,6 +48,7 @@ export const crateUpdate = {
 }
 
 // Crate remove
+// deletes a crate given an id
 export const crateRemove = {
   type: CrateType,
   args: {

@@ -6,6 +6,7 @@ import SubscriptionType from './types'
 import { create, remove } from './resolvers'
 
 // Subscription create
+// creates a new subscription
 export const subscriptionCreate = {
   type: SubscriptionType,
   args: {
@@ -18,6 +19,7 @@ export const subscriptionCreate = {
 }
 
 // Subscription remove
+// deletes a subscription given an id
 export const subscriptionRemove = {
   type: SubscriptionType,
   args: {

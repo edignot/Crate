@@ -92,3 +92,5 @@ module.exports = {
     return queryInterface.bulkDelete('products', null, {});
   }
 }
+
+// creates seed data for products based on product model

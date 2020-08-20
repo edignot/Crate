@@ -7,9 +7,11 @@ import { grey2, grey4, black } from '../common/colors'
 
 // Component
 const Input = (props) => {
+  // receives props and destructures for styling
   const { type, fullWidth, ...other } = props
 
   return (
+    // type prop sets input type.  can use text for email update/address update and date for delivery date update
     <div>
       <input type={type} {...other} />
 

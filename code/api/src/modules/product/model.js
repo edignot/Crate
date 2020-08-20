@@ -1,6 +1,8 @@
 'use strict'
 
 // Product
+// shape of product obj
+// what is type here? datatype is int, where are those numbers held?
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('products', {
     name: {

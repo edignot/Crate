@@ -27,3 +27,5 @@ module.exports = {
     return queryInterface.dropTable('crates');
   }
 }
+
+// defines rules for model

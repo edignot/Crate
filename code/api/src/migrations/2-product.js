@@ -39,3 +39,5 @@ module.exports = {
     return queryInterface.dropTable('products');
   }
 }
+
+// defines rules for model

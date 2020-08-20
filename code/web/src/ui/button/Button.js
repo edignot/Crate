@@ -9,13 +9,23 @@ import { level1, level2, level3, level4 } from '../common/shadows'
 
 // Component
 const Button = (props) => {
+  // component receives props and destructures for use in render
   const { children, type, disabled, theme, ...other } = props
 
   return (
+    // button element receives props for styling
     <button type={type} disabled={disabled} {...other}>
       {children}
 
       {/* language=CSS */}
+      {/* color/box shadow - if theme is set to anything but none, font color will be white and box shadow will be level2,
+          otherwise color will be black and no shadow */}
+      {/* background color - if theme is set to primary, background color will be primary,
+          if theme is set to secondary, background color will be secondary,
+          if it is anything else, background color will be transparent */}
+      {/* background image - if the theme is set to primary, image will be primary gradient,
+      if the theme is set to secondary, image will be secondary,
+      if it is anything else, there will be no image */}
       <style jsx>{`
         button {
           padding: 0.7em 1.7em;
