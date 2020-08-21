@@ -12,3 +12,4 @@ const schema = new GraphQLSchema({
 })
 
 export default schema
+// this should allow us to grab the schema elsewhere, importing from this file
