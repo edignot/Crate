@@ -49,3 +49,5 @@ export const store = createStore(
 // ALLOWS ACTION CREATOR TO RETURN A FUNCTION(DOESN'T HAVE TO BE PURE, SO CAN HAVE ASYNC CALLS ) INSTEAD OF AN ACTION OBJECT
 // https://www.youtube.com/watch?v=z2XCUu2wIl0
 // ------------------- THUNK ----------------------
+
+// REDUX STORE THUNK ANNOTATION

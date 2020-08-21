@@ -6,7 +6,7 @@ import cookie from 'js-cookie'
 // App Imports
 import { routeApi } from '../../../setup/routes'
 
-// Actions Types
+// Actions Types 
 export const LOGIN_REQUEST = 'AUTH/LOGIN_REQUEST'
 export const LOGIN_RESPONSE = 'AUTH/LOGIN_RESPONSE'
 export const SET_USER = 'AUTH/SET_USER'
@@ -26,15 +26,19 @@ export function setUser(token, user) {
 }
 
 // Login a user using credentials
+// ACTION CREATOR - FUNCTION THAT RETURN AN ACTION OBJECT
 export function login(userCredentials, isLoading = true) {
   return dispatch => {
+    // ACTION IS DISPATCHED TO REDUCER ( MATCH NY TYPE ) STATE UPDATES TO LOADING WHILE WAITING FOR NETWORK REQUEST
     dispatch({
       type: LOGIN_REQUEST,
       isLoading
     })
-
+    // ASYNC NETWORK REQUEST
+    // ROUTEAPI - GRAPHQL ENDPOINT ( graphql has only one endpoint )
     return axios.post(routeApi, query({
       operation: 'userLogin',
+      // VARIABLES - DATA SENT TO THE SERVER
       variables: userCredentials,
       fields: ['user {name, email, role}', 'token']
     }))
@@ -76,7 +80,7 @@ export function loginSetUserLocalStorageAndCookie(token, user) {
   cookie.set('auth', { token, user }, { path: '/' })
 }
 
-// Register a user
+
 export function register(userDetails) {
   return dispatch => {
     return axios.post(routeApi, mutation({
@@ -117,3 +121,8 @@ export function getGenders() {
     }))
   }
 }
+
+
+
+
+// ACTION CREATORS ANNOTATION

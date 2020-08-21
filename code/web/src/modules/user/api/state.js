@@ -1,8 +1,10 @@
 // App Imports
 import { isEmpty } from '../../../setup/helpers'
+
+// IMPORT ACTION TYPE VARIABLES
 import { SET_USER, LOGIN_REQUEST, LOGIN_RESPONSE, LOGOUT } from './actions'
 
-// Initial State
+// INITIAL STATE
 export const userInitialState = {
   error: null,
   isLoading: false,
@@ -10,9 +12,10 @@ export const userInitialState = {
   details: null
 }
 
-// State
+// USER REDUCER
 export default (state = userInitialState, action) => {
   switch (action.type) {
+    // ACTION TYPE MATCHING ACTION. IF CASE MATCHES - STATE IS UPDATED ACCORDINGLY
     case SET_USER:
       return {
         ...state,
@@ -42,8 +45,12 @@ export default (state = userInitialState, action) => {
         isAuthenticated: false,
         details: null
       }
-
+    // RETURN DEFAULT STATE IF NONE OF THE ACTION TYPES MATCH ACTION
     default:
       return state
   }
 }
+
+
+
+// ANNOTATION
