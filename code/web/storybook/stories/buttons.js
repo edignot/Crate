@@ -16,8 +16,8 @@ import React from 'react';
 // SHOULD MIGRATE TO STORYBOOK https://github.com/storybookjs/storybook/tree/next/lib/codemod
 // ------------------------ STORIES OF ------------------------------
 
-https: import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/addons';
+import { action } from '@storybook/addons';
 
 // UI Imports
 import Button from '../../src/ui/button/Button';
