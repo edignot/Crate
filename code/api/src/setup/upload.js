@@ -1,5 +1,6 @@
 // Imports
 import path from 'path'
+// Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files
 import multer from 'multer'
 
 // App Imports
@@ -39,3 +40,5 @@ export default function (server) {
     })
   })
 }
+
+// file upload annotation
