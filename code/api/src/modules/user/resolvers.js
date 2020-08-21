@@ -77,3 +77,8 @@ export async function remove(parentValue, { id }) {
 export async function getGenders() {
   return Object.values(params.user.gender)
 }
+
+
+// RESOLVER IS A FUNCTION THAT RETURNS DATA REFLECTING ARGUMENTS PASSED INTO REQUEST 
+
+// ANNOTATION

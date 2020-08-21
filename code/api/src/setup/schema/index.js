@@ -17,4 +17,8 @@ const schema = new GraphQLSchema({
 export default schema;
 
 // ALMOST ALL GRAPHQL TYPES DEFINED ARE OBJECTS
-// GRAPHQL ANNOTATION
+
+// GRAPHQL 1
+// GraphQL schema is at the core of any GraphQL server implementation. It describes the functionality AVAILABLE to the client applications that connect to it.
+
+// ANNOTATION
