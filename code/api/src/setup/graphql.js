@@ -15,6 +15,7 @@ export default function (server) {
   // API (GraphQL on route `/`)
   server.use(serverConfig.graphql.endpoint, graphqlHTTP(request => ({
     schema,
+    // ALLOWS GRAPHIQL PLAYGROUND / TRUE
     graphiql: serverConfig.graphql.ide,
     pretty: serverConfig.graphql.pretty,
     context: {

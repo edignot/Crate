@@ -1,5 +1,10 @@
 module.exports = {
+    // PASSED QUERY INTERFACE OBJECT CAN BE USED TO MODIFY DATABASE
+    // SEQUELIZE OBJECT STORES DATA( INT, STRING )
+
+    // FUNCTION UP RETURN A PROMISE
     up: (queryInterface, Sequelize) => {
+        // CREATE TABLE METHOD CREATES NEW TABLE createTable(tableName, attributes, options)
         return queryInterface.createTable('users', {
             id: {
                 allowNull: false,
@@ -29,7 +34,10 @@ module.exports = {
             },
         });
     },
+
+    // FUNCTION DOWN RETURNS A PROMISE
     down: (queryInterface, Sequelize) => {
+        // DROP TABLE ALLOWS DELETION OF A TABLE dropTable(tableName, options)
         return queryInterface.dropTable('users');
     },
 };
