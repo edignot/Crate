@@ -39,3 +39,8 @@ module.exports = {
     return queryInterface.dropTable('products');
   }
 }
+
+// A Migration in Sequelize is javascript file which exports two functions, up and down , that dictate how to perform the migration and undo it. You define those functions manually, but you don't call them manually; they will be called automatically by the CLI
+// Database migration is the process of transforming data between various states without any human interaction
+
+// ANNOTATION
