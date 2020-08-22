@@ -80,10 +80,11 @@ export function loginSetUserLocalStorageAndCookie(token, user) {
   cookie.set('auth', { token, user }, { path: '/' })
 }
 
-
+// USER SIGNUP
 export function register(userDetails) {
   return dispatch => {
     return axios.post(routeApi, mutation({
+      // OPERATION TYPE MATCHES GRAPHQL MUTATION 
       operation: 'userSignup',
       variables: userDetails,
       fields: ['id', 'name', 'email']

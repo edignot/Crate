@@ -23,6 +23,7 @@ const UserLoginType = new GraphQLObjectType({
   description: 'User Authentication Type',
 
   fields: () => ({
+    // RELATION TO USER TYPE
     user: { type: UserType },
     token: { type: GraphQLString }
   })
@@ -40,3 +41,7 @@ const UserGenderType = new GraphQLObjectType({
 })
 
 export { UserType, UserLoginType, UserGenderType }
+
+// GRAPHQL USES STRONG TYPE SYSTEM TO DEFINE CAPABILITIES OF AN API
+
+// GRAPHQL ANNOTATION

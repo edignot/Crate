@@ -18,6 +18,7 @@ export default schema;
 
 // ALMOST ALL GRAPHQL TYPES DEFINED ARE OBJECTS
 
+// SCHEMA SERVES AS A CONTACT BETWEEN CLIENT AND SERVER, SO BE AND FE CAN WORK INDEPENDENTLY
 // GRAPHQL 1
 // GraphQL schema is at the core of any GraphQL server implementation. It describes the functionality AVAILABLE to the client applications that connect to it.
 

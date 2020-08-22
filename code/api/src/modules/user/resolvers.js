@@ -10,6 +10,7 @@ import models from '../../setup/models'
 // Create
 export async function create(parentValue, { name, email, password }) {
   // Users exists with same email check
+  // FIND USER MODEL AND TRY TO FIND USER BY EMAIL
   const user = await models.User.findOne({ where: { email } })
 
   if (!user) {
@@ -28,6 +29,7 @@ export async function create(parentValue, { name, email, password }) {
 }
 
 export async function login(parentValue, { email, password }) {
+  // FIND IF USER EXISTS BY EMAIL
   const user = await models.User.findOne({ where: { email } })
 
   if (!user) {

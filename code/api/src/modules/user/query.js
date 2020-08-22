@@ -14,6 +14,7 @@ export const users = {
 // By ID
 export const user = {
     type: UserType,
+    // POSSIBLE ARGUMENTS TO QUERY BY
     args: {
         id: { type: GraphQLInt },
     },
@@ -49,8 +50,7 @@ export const userGenders = {
 };
 
 // EVERY FUNCTION IN THIS FILE IS A QUERY
-// QUERY DATA FROM SERVER 
-
-
+// QUERY DATA FROM SERVER
+// PAYLOAD OF THE ROOT QUERY
 
 // ANNOTATION
