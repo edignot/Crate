@@ -24,6 +24,7 @@ export const user = {
 // Auth
 export const userLogin = {
     type: UserLoginType,
+    // arguments expected in this format
     args: {
         email: {
             name: 'email',

@@ -27,7 +27,7 @@ export function setUser(token, user) {
 
 // Login a user using credentials
 // ACTION CREATOR - FUNCTION THAT RETURN AN ACTION OBJECT
-export function (userCredentials, isLoading = true) {
+export function login(userCredentials, isLoading = true) {
     return (dispatch) => {
         // ACTION IS DISPATCHED TO REDUCER ( MATCH NY TYPE ) STATE UPDATES TO LOADING WHILE WAITING FOR NETWORK REQUEST
         dispatch({

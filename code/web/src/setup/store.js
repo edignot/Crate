@@ -51,3 +51,5 @@ export const store = createStore(
 // ------------------- THUNK ----------------------
 
 // REDUX STORE THUNK ANNOTATION
+
+// ! ANNOTATION
