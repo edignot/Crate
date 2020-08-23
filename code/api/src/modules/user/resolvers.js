@@ -5,6 +5,7 @@ import jwt from 'jsonwebtoken'
 // App Imports
 import serverConfig from '../../config/server'
 import params from '../../config/params'
+// IMPORTING COMBINED MODELS
 import models from '../../setup/models'
 
 // Create
@@ -80,7 +81,6 @@ export async function getGenders() {
   return Object.values(params.user.gender)
 }
 
-
 // RESOLVER IS A FUNCTION THAT RETURNS DATA REFLECTING ARGUMENTS PASSED INTO REQUEST 
 
-// ANNOTATION
+// ! ANNOTATION

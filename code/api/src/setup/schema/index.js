@@ -6,6 +6,7 @@ import query from './queries';
 import mutation from './mutations';
 
 // SCHEMA CAN BY ACCESSED BY A CLIENT
+// ! SCHEMA IS A COLLECTION OF GRAPHQL TYPES
 // SCHEMA MANAGES QUERIES AND MUTATIONS, DESCRIBES COMPLETE SET OF POSSIBLE DATA ( OBJECTS, FIELDS, RELATIONSHIPS...)
 const schema = new GraphQLSchema({
     // QUERIES ARE USED TO FETCH DATA FROM GRAPHQL ( LIKE GET IN REST API )
@@ -22,4 +23,4 @@ export default schema;
 // GRAPHQL 1
 // GraphQL schema is at the core of any GraphQL server implementation. It describes the functionality AVAILABLE to the client applications that connect to it.
 
-// ANNOTATION
+// ! ANNOTATION
