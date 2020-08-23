@@ -1,6 +1,5 @@
 // Imports
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql';
-import { GraphQLObjectType } from 'graphql';
 
 // User type
 // ANY GRAPHQL TYPE IS AN OBJECT THAT HAS NAME AND FIELDS
@@ -49,7 +48,6 @@ export { UserType, UserLoginType, UserGenderType };
 // GRAPHQL USES STRONG TYPE SYSTEM TO DEFINE CAPABILITIES OF AN API
 // TYPE SYSTEM HELPS TO DEFINE SCHEMA
 
-
 // const TestType = new GraphQLObjectType({
 //     name: 'TestType',
 //     fields: {
@@ -59,11 +57,9 @@ export { UserType, UserLoginType, UserGenderType };
 //             fields: {
 //                 property1: { type: GraphQLString },
 //                 property2: { type: GraphQLInt },
-//                 // CAN REFER ANOTHER TYPE
 //             },
 //         }),
 //     },
 // });
-
 
 // ! ANNOTATION

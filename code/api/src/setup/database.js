@@ -9,8 +9,11 @@ import databaseConfig from '../config/database.json'
 const databaseConfigEnv = databaseConfig[NODE_ENV]
 
 // Create new database connection
+// CONSTRUCTOR FUNCTION THAT CREATES A NEW SEQUELIZE DATABASE
+// database - crate, username: edignot, password: null
 const connection = new Sequelize(databaseConfigEnv.database, databaseConfigEnv.username, databaseConfigEnv.password, {
   host: databaseConfigEnv.host,
+  // DIALECT: posgres
   dialect: databaseConfigEnv.dialect,
   logging: false
 })
@@ -28,3 +31,5 @@ connection
   })
 
 export default connection
+
+// ! ANNOTATION
