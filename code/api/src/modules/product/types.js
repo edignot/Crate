@@ -2,6 +2,8 @@
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 
 // Product type
+// defines the product type object which is what you can fetch from the api
+
 const ProductType = new GraphQLObjectType({
   name: 'product',
   description: 'Product Type',
@@ -20,6 +22,8 @@ const ProductType = new GraphQLObjectType({
 })
 
 // User Gender type
+// defines the product gender type object which  referred to in the product type attributes
+
 const ProductTypesType = new GraphQLObjectType({
   name: 'productTypesType',
   description: 'User Types Type',

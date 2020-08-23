@@ -1,3 +1,4 @@
+//Seems to be mapping out the params for product and a user to use in seed files
 {
   "product": {
     "types": {

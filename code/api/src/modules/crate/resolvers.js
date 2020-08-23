@@ -1,9 +1,11 @@
+//This file defines the responses we return when information is queried
 // App Imports
 import models from '../../setup/models'
 import params from '../../config/params'
 
 // Get crate by ID
 export async function getById(parentValue, { crateId }) {
+  //await pauses your code on this line while other code is executed in the meantime, until a promise is received
   const crate = await models.Crate.findOne({ where: { id: crateId } })
 
   if (!crate) {
@@ -22,6 +24,7 @@ export async function getAll(parentValue, { orderBy }) {
 // Create crate
 export async function create(parentValue, { name, description }, { auth }) {
   if(auth.user && auth.user.role === params.user.roles.admin) {
+    //await pauses your code on this line while other code is executed in the meantime, until a promise is received
     return await models.Crate.create({
       name,
       description
@@ -34,6 +37,7 @@ export async function create(parentValue, { name, description }, { auth }) {
 // Update crate
 export async function update(parentValue, { id, name, description }, { auth }) {
   if(auth.user && auth.user.role === params.user.roles.admin) {
+    //await pauses your code on this line while other code is executed in the meantime, until a promise is received
     return await models.Crate.update(
       {
         name,

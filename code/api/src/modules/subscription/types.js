@@ -6,6 +6,7 @@ import { UserType } from '../user/types'
 import CrateType from '../crate/types'
 
 // Subscription type
+// defines the subscription type object which is what you can fetch from the api
 const SubscriptionType = new GraphQLObjectType({
   name: 'subscription',
   description: 'Subscription Type',

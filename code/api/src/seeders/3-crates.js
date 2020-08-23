@@ -1,5 +1,6 @@
 'use strict';
 
+//Creates 6 crate seeds, one for each category of crate
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('crates', [

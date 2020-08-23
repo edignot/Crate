@@ -1,3 +1,4 @@
+//This file defines the responses we return when information is queried
 // App Imports
 import params from '../../config/params'
 import models from '../../setup/models'

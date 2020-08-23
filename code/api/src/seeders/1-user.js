@@ -1,9 +1,10 @@
 'use strict';
-
+// requiring bcrypt, server.json, params.json, and strict
 const bcrypt = require('bcrypt');
 const config = require('../config/server.json');
 const params = require('../config/params.json');
 
+//Creates a seed for and Admin user and a regular user
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('users', [
@@ -25,7 +26,7 @@ module.exports = {
       }
     ])
   },
-
+//Removes any record of no users
   down: (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete('users', null, {});
   }

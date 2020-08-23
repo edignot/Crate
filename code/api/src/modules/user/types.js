@@ -2,6 +2,7 @@
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 
 // User type
+// defines the user type object which is what you can fetch from the api
 const UserType = new GraphQLObjectType({
   name: 'user',
   description: 'User type',
@@ -18,6 +19,8 @@ const UserType = new GraphQLObjectType({
 })
 
 // User Login type
+// defines the user log in type object which is what you can fetch from the api
+
 const UserLoginType = new GraphQLObjectType({
   name: 'userAuth',
   description: 'User Authentication Type',
@@ -29,6 +32,8 @@ const UserLoginType = new GraphQLObjectType({
 })
 
 // User Gender type
+// defines the user gender type object which is what you can fetch from the api
+
 const UserGenderType = new GraphQLObjectType({
   name: 'userGender',
   description: 'User Gender Type',

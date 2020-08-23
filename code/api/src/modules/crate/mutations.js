@@ -6,6 +6,7 @@ import CrateType from './types'
 import { create, remove, update } from './resolvers'
 
 // Crate create
+// Sets up the query to create a crate. 
 export const crateCreate = {
   type: CrateType,
   args: {
@@ -23,6 +24,7 @@ export const crateCreate = {
 }
 
 // Crate update
+// Sets up the query to update a Crate
 export const crateUpdate = {
   type: CrateType,
   args: {
@@ -45,6 +47,7 @@ export const crateUpdate = {
 }
 
 // Crate remove
+// Sets up the query to remove a Crate
 export const crateRemove = {
   type: CrateType,
   args: {

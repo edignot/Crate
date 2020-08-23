@@ -1,7 +1,8 @@
 'use strict';
-
+//Requiring in params for use with type and user
 const params = require('../config/params');
 
+//Creates 8 product seeds with different attributes
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('products', [

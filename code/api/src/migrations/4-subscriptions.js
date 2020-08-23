@@ -1,4 +1,5 @@
 module.exports = {
+  // Creates the subscriptions table in the database with all of its attributes
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('subscriptions', {
       id: {
@@ -33,6 +34,7 @@ module.exports = {
       }
     });
   },
+  // removes whatever existed in the table before
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('subscriptions');
   }

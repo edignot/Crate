@@ -1,3 +1,4 @@
+// Creates the product table in the database with all of its attributes
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('products', {
@@ -35,6 +36,7 @@ module.exports = {
       }
     });
   },
+    // removes whatever existed in the table before
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('products');
   }

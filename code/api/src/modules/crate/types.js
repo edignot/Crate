@@ -2,6 +2,7 @@
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 
 // Crate type
+// defines the crate type object which is what you can fetch from the api
 const CrateType = new GraphQLObjectType({
   name: 'crate',
   description: 'Crate Type',

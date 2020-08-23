@@ -1,3 +1,4 @@
+// Creates the crate table in the database with all of its attributes
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('crates', {
@@ -23,6 +24,7 @@ module.exports = {
       }
     });
   },
+    // removes whatever existed in the table before
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('crates');
   }

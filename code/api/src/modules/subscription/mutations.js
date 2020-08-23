@@ -6,6 +6,8 @@ import SubscriptionType from './types'
 import { create, remove } from './resolvers'
 
 // Subscription create
+// Sets up the query to create a subcription. 
+
 export const subscriptionCreate = {
   type: SubscriptionType,
   args: {
@@ -18,6 +20,8 @@ export const subscriptionCreate = {
 }
 
 // Subscription remove
+// Sets up the query to remove a subcription. 
+
 export const subscriptionRemove = {
   type: SubscriptionType,
   args: {

@@ -1,3 +1,4 @@
+//This file defines the responses we return when information is queried
 // Imports
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
@@ -10,6 +11,8 @@ import models from '../../setup/models'
 // Create
 export async function create(parentValue, { name, email, password }) {
   // Users exists with same email check
+  //await pauses your code on this line while other code is executed in the meantime, until a promise is received
+
   const user = await models.User.findOne({ where: { email } })
 
   if (!user) {

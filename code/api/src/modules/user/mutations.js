@@ -6,6 +6,7 @@ import { UserType } from './types'
 import { create, remove } from './resolvers'
 
 // Create
+// Sets up the query to create a user
 export const userSignup = {
   type: UserType,
   args: {
@@ -28,6 +29,7 @@ export const userSignup = {
 }
 
 // Remove
+// Sets up the query to remove a user
 export const userRemove = {
   type: UserType,
   args: {
