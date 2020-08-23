@@ -27,6 +27,7 @@ const UserLoginType = new GraphQLObjectType({
     // FIELDS IS AN OBJECT THAT TELLS GRAPHQL ABOUT ALL THE PROPERTIES ON THIS TYPE
     fields: () => ({
         // RELATION TO USER TYPE. USER IS ANOTHER TYPE OBJECT
+        // WHEN USER LOGS IN , GRAPHQL FINDS REFERENCE TO USERTYPE AND FINDS OTHER FIELDS
         user: { type: UserType },
         token: { type: GraphQLString },
     }),

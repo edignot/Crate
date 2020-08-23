@@ -74,7 +74,6 @@ export function getList(isLoading = true, forceRefresh = false) {
             });
     };
 }
-//----------------------------------------------------------------------------
 
 // Get single product
 export function get(slug, isLoading = true) {
@@ -85,11 +84,17 @@ export function get(slug, isLoading = true) {
         });
 
         return axios
+        // SENDING AXIOS NETWORK REQUEST
             .post(
+                // ONE ENDPOINT
                 routeApi,
+                // QUERY 
                 query({
                     operation: 'product',
+                    // PASSED ARGUMENT FOR FINDING THE RIGHT DATA
+                    // SLUG - DYNAMIC URL PART
                     variables: { slug },
+                    // ASKING FOR SPECIFIC PROPERTIES TO GET BACK FROM SERVER
                     fields: [
                         'id',
                         'name',
@@ -275,3 +280,6 @@ export function getTypes() {
         );
     };
 }
+
+
+// ! ANNOTATION 
