@@ -6,12 +6,14 @@ module.exports = {
       {
         name: 'Clothes for Men',
         description: 'A monthly supply of trendy clothes for men.',
+        // Might want to keep track of the delivery date of each crate
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         name: 'Clothes for Women',
         description: 'A monthly supply of trendy clothes for women.',
+        // In which case we'd need to add a delivery date for all of these
         createdAt: new Date(),
         updatedAt: new Date()
       },

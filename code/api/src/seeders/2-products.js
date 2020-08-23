@@ -12,6 +12,8 @@ module.exports = {
         type: params.product.types.accessory.id,
         gender: params.user.gender.female.id,
         image: '/images/stock/belt-female.jpg',
+        /* might need two booleans here - one for whether it's been sent, and
+        another boolean for if it has been kept by the user it was sent to. */
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -22,6 +24,7 @@ module.exports = {
         type: params.product.types.accessory.id,
         gender: params.user.gender.male.id,
         image: '/images/stock/belt-male.jpg',
+        // like all seeding data, we'd need to update every seed for this.
         createdAt: new Date(),
         updatedAt: new Date()
       },

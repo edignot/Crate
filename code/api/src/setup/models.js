@@ -9,7 +9,8 @@ const models = {
   Product: databaseConnection.import('../modules/product/model'),
   Crate: databaseConnection.import('../modules/crate/model'),
   Subscription: databaseConnection.import('../modules/subscription/model')
-  // if we need to add a new model, we will need to add so here.
+  /* if we need to add a new model, we will need to add so here. I think we
+  may need a join table between products and crates to keep track of history. */
 }
 
 

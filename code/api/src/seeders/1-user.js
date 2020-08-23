@@ -12,6 +12,10 @@ module.exports = {
         email: 'admin@crate.com',
         password: bcrypt.hashSync('123456', config.saltRounds),
         role: params.user.roles.admin,
+        /* if we're adding an image for the profile, we'd probably need to seed
+        an image here for any user simulacrums we're building up for testing.
+        Similarly, we'd probably need a shipping address as well as a field for
+        personal description, as they'd be attached to the user themselves. */
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -20,6 +24,7 @@ module.exports = {
         email: 'user@crate.com',
         password: bcrypt.hashSync('123456', config.saltRounds),
         role: params.user.roles.user,
+        // They would have to continue to be added every subsequent seed
         createdAt: new Date(),
         updatedAt: new Date()
       }
