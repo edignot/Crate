@@ -19,6 +19,7 @@ const File = (props) => {
           size={1.2}>file_upload</Icon> {text}</label>
         <input
           className="file-upload__input"
+          // INPUT TYPE FILE
           type="file"
           name={name}
           id={`file-upload-${ name }`}
@@ -88,3 +89,5 @@ File.defaultProps = {
 }
 
 export default File
+
+// ! ANNOTATION

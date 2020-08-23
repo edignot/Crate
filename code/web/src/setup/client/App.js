@@ -11,7 +11,9 @@ import RoutePrivate from '../../modules/auth/RoutePrivate'
 const App = () => (
   <Layout>
     <Switch>
+
       {Object.values(routes).map((route, index) => (
+        // CHECKING IF USER IS AUTHENTICATED
         route.auth
           ? <RoutePrivate {...route} key={index} path={typeof route.path === 'function' ? route.path() : route.path}/>
           : <Route {...route} key={index} path={typeof route.path === 'function' ? route.path() : route.path}/>
@@ -23,3 +25,5 @@ const App = () => (
 )
 
 export default App
+
+// ! ANNOTATION 

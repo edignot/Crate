@@ -24,6 +24,7 @@ if (token && token !== 'undefined' && token !== '') {
 
 // Client App
 const Client = () => (
+  // GIVING ALL AP ACCESS TO THE GLOBAL STORE
   <Provider store={store} key="provider">
     <Router>
       <ScrollToTop>
@@ -40,3 +41,5 @@ window.onload = () => {
     document.getElementById('app')
   )
 }
+
+// ! ANNOTATION
