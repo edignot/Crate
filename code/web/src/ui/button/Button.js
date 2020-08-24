@@ -1,3 +1,5 @@
+// How buttons on a page are laid out
+
 // Imports
 import React from 'react'
 import PropTypes from 'prop-types'

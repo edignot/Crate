@@ -1,3 +1,4 @@
+//Defines styling of a component type
 // Imports
 import React from 'react'
 import PropTypes from 'prop-types'

@@ -1,3 +1,4 @@
+// Landing page for User profile, rendering
 // Imports
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -16,6 +17,7 @@ import userRoutes from '../../setup/routes/user'
 import { logout } from './api/actions'
 
 // Component
+//The actual styling elements look like they are listed out here.
 const Profile = (props) => (
   <div>
     {/* SEO */}
