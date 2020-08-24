@@ -13,6 +13,9 @@ module.exports = {
       description: {
         type: Sequelize.TEXT
       },
+      /* will need a new migration, but we probably want to add some sort of
+      delivery date for the crate, though that might actually go in
+      subscriptions since the crate is per user rather than overall */
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -23,6 +23,7 @@ module.exports = {
         },
         allowNull: false
       },
+      //the prior two show this as a join table between users and crates
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

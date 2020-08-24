@@ -18,9 +18,11 @@ module.exports = {
       },
       type: {
         type: Sequelize.INTEGER
+        // this integer connects to the types that are in the params.json
       },
       gender: {
         type: Sequelize.INTEGER
+        // as does this one, filling in for categorical data
       },
       image: {
         type: Sequelize.TEXT
