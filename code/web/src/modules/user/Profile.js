@@ -36,8 +36,10 @@ const Profile = (props) => (
 
     <Grid>
     {/* <Grid style={{ display: flex, flexDirection: row }}> */}
-      <GridCell style={{ padding: '2em', textAlign: 'center' }}>
+      <GridCell>
         <UserInfo />
+      </GridCell>
+      <GridCell style={{ padding: '2em', textAlign: 'center' }}>
         <DeliveryInfo />
 
         {/* <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>

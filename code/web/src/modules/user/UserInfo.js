@@ -22,8 +22,8 @@ class UserInfo extends React.Component {
     const user = this.props.user.details
     this.setState({ 
       emailInput: user.email,
-      userDescription: 'Description Here',
-      shippingAddressInput: 'Shipping Here'
+      userDescription: user.description || 'Add a description',
+      shippingAddressInput: user.shippingAddress || 'Add your shipping address'
     })
   }
 
