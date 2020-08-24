@@ -5,6 +5,10 @@ import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 
+// User Imports
+import DeliveryInfo from './DeliveryInfo'
+import UserInfo from './UserInfo'
+
 // UI Imports
 import { Grid, GridCell } from '../../ui/grid'
 import { H3, H4 } from '../../ui/typography'
@@ -32,7 +36,8 @@ const Profile = (props) => (
 
     <Grid>
       <GridCell style={{ padding: '2em', textAlign: 'center' }}>
-        <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
+        <DeliveryInfo />
+        {/* <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
 
         <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.email}</p>
 
@@ -40,7 +45,7 @@ const Profile = (props) => (
           <Button theme="primary">Subscriptions</Button>
         </Link>
 
-        <Button theme="secondary" onClick={props.logout} style={{ marginLeft: '1em' }}>Logout</Button>
+        <Button theme="secondary" onClick={props.logout} style={{ marginLeft: '1em' }}>Logout</Button> */}
       </GridCell>
     </Grid>
   </div>
