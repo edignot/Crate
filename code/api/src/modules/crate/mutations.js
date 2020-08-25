@@ -4,6 +4,7 @@ import { GraphQLString, GraphQLInt } from 'graphql'
 // App Imports
 import CrateType from './types'
 import { create, remove, update } from './resolvers'
+// this connects to the resolvers that actually change the database
 
 // Crate create
 export const crateCreate = {
@@ -21,6 +22,7 @@ export const crateCreate = {
   },
   resolve: create
 }
+// A create function for the crate, taking in the name and description from GraphQL
 
 // Crate update
 export const crateUpdate = {
@@ -43,6 +45,7 @@ export const crateUpdate = {
   },
   resolve: update
 }
+// The update function for the crate, taking the new attributes in
 
 // Crate remove
 export const crateRemove = {
@@ -55,3 +58,4 @@ export const crateRemove = {
   },
   resolve: remove
 }
+// the delete function for the create, taking the id of what crate is being deleted

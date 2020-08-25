@@ -14,5 +14,6 @@ const CrateType = new GraphQLObjectType({
     updatedAt: { type: GraphQLString }
   })
 })
+// allows us to interact with the model via GraphQL, imported to the queries and mutations
 
 export default CrateType
