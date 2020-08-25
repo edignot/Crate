@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 // UI Imports
 import { H3, H5 } from '../../ui/typography';
 import { Input, File, Textarea } from '../../ui/input';
-import { level1} from '../../ui/common/shadows';
+import { level1 } from '../../ui/common/shadows';
 import Button from '../../ui/button';
 
 // Constants
@@ -76,6 +76,7 @@ class UserInfo extends React.Component {
                             </Button> */}
                         </div>
                     </div>
+
                     <section style={emailNameWrapper}>
                         <H3>{this.props.user.details.name}</H3>
                         <Input
@@ -87,12 +88,15 @@ class UserInfo extends React.Component {
                     </section>
                 </section>
 
-                <Textarea
-                    name='userDescription'
-                    value={this.state.userDescription}
-                    style={description}
-                    onChange={(e) => this.handleChange(e)}
-                />
+                <section style={descriptionWrapper}>
+                    <Textarea
+                        name='userDescription'
+                        value={this.state.userDescription}
+                        style={description}
+                        onChange={(e) => this.handleChange(e)}
+                    />
+                </section>
+
                 <section style={shippingAddress}>
                     <H5>Shipping Address</H5>
                     <Input
@@ -120,7 +124,9 @@ class UserInfo extends React.Component {
                     </section>
                 </section>
 
-                <p style={description}>{this.state.userDescription}</p>
+                <section style={descriptionWrapper}>
+                    <p style={description}>{this.state.userDescription}</p>
+                </section>
 
                 <section style={shippingAddress}>
                     <H5>Shipping Address</H5>
@@ -201,10 +207,18 @@ const imageUpload = {
     position: 'absolute',
 };
 
-const description = {
-    paddingTop: '50px',
-    width: '80%',
+const descriptionWrapper = {
     margin: 'auto',
+    marginTop: '50px',
+    width: '80%',
+    height: 'auto',
+};
+
+const description = {
+    width: '100%',
+    padding: '0',
+    margin: '0',
+    height: '150px',
 };
 
 const shippingAddress = {
