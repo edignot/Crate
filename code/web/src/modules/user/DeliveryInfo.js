@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Input from '../../ui/input/Input';
+import { level1 } from '../../ui/common/shadows';
 
 class DeliveryInfo extends React.Component {
     constructor() {
@@ -60,4 +61,8 @@ function profileState(state) {
 export default connect(profileState)(DeliveryInfo);
 
 // Styling
-const style = { border: '2px solid red', minHeight: '70vh' };
+const style = {
+    minHeight: '70vh',
+    boxShadow: level1,
+    borderRadius: '5px',
+};

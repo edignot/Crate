@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 // UI Imports
 import { H3, H5 } from '../../ui/typography';
 import { Input, File, Textarea } from '../../ui/input';
+import { level1} from '../../ui/common/shadows';
 import Button from '../../ui/button';
 
 // Constants
@@ -92,12 +93,15 @@ class UserInfo extends React.Component {
                     style={description}
                     onChange={(e) => this.handleChange(e)}
                 />
-                <Input
-                    type='text'
-                    name='shippingAddressInput'
-                    value={this.state.shippingAddressInput}
-                    onChange={(e) => this.handleChange(e)}
-                />
+                <section style={shippingAddress}>
+                    <H5>Shipping Address</H5>
+                    <Input
+                        type='text'
+                        name='shippingAddressInput'
+                        value={this.state.shippingAddressInput}
+                        onChange={(e) => this.handleChange(e)}
+                    />
+                </section>
             </section>
         );
     };
@@ -118,7 +122,7 @@ class UserInfo extends React.Component {
 
                 <p style={description}>{this.state.userDescription}</p>
 
-                <section>
+                <section style={shippingAddress}>
                     <H5>Shipping Address</H5>
                     <p>{this.state.shippingAddressInput}</p>
                 </section>
@@ -155,10 +159,11 @@ export default connect(profileState)(UserInfo);
 
 // Styling
 const style = {
-    border: '2px solid red',
     minHeight: '70vh',
     display: 'flex',
     flexDirection: 'column',
+    boxShadow: level1,
+    borderRadius: '5px',
 };
 
 const editSaveButton = {
@@ -168,13 +173,11 @@ const editSaveButton = {
 };
 
 const infoContainer = {
-    border: '2px solid red',
     width: '90%',
     margin: '0 auto',
 };
 
 const imageEmailNameWrapper = {
-    border: '2px solid red',
     display: 'flex',
 };
 
@@ -184,7 +187,6 @@ const emailNameWrapper = {
 };
 
 const imageWrapper = {
-    border: '2px solid red',
     width: '20%',
     display: 'flex',
     flexDirection: 'column',
@@ -192,16 +194,20 @@ const imageWrapper = {
 
 const imageStyle = {
     width: '100%',
-    border: '2px solid red',
     borderRadius: '50%',
 };
 
 const imageUpload = {
-    border: '2px solid red',
     position: 'absolute',
 };
 
 const description = {
+    paddingTop: '50px',
+    width: '80%',
+    margin: 'auto',
+};
+
+const shippingAddress = {
     paddingTop: '50px',
     width: '80%',
     margin: 'auto',
