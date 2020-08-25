@@ -46,6 +46,9 @@ const Profile = (props) => (
   </div>
 )
 
+/* I see what they were talking about the whole "hideous inline CSS". Still, this
+sets up how the user profile page displays, and will change when we add new info */
+
 // Component Properties
 Profile.propTypes = {
   user: PropTypes.object.isRequired,
