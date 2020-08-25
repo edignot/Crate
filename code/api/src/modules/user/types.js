@@ -16,6 +16,7 @@ const UserType = new GraphQLObjectType({
     updatedAt: { type: GraphQLString }
   })
 })
+// we'll have to add the additional fields we're adding to this as well
 
 // User Login type
 const UserLoginType = new GraphQLObjectType({
@@ -38,5 +39,6 @@ const UserGenderType = new GraphQLObjectType({
     name: { type: GraphQLString }
   })
 })
+// these come from the params json file
 
 export { UserType, UserLoginType, UserGenderType }

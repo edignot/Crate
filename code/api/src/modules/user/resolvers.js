@@ -1,6 +1,7 @@
 // Imports
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
+// we need bcrypt for hashing stuff, secure passwords
 
 // App Imports
 import serverConfig from '../../config/server'
@@ -26,6 +27,8 @@ export async function create(parentValue, { name, email, password }) {
     throw new Error(`The email ${ email } is already registered. Please try to login.`)
   }
 }
+/* requires unique email, so we'll need to make sure users can't edit to one
+that already exists as well. Otherwise we could have other errors pop up. */
 
 export async function login(parentValue, { email, password }) {
   const user = await models.User.findOne({ where: { email } })
@@ -57,6 +60,9 @@ export async function login(parentValue, { email, password }) {
     }
   }
 }
+
+/* no update method - we'll have to add that functionality in. Email especially,
+but all the new functionalities as well should be able to be edited and updated. */
 
 // Get by ID
 export async function getById(parentValue, { id }) {

@@ -16,10 +16,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT
     }
   })
+  // we'll need to add the various profile information parts in here as well
 
   User.associate = function(models) {
     User.hasMany(models.Subscription)
   }
+  // has many subscriptions, may need to add a join tables with products too
 
   return User
 }

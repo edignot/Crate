@@ -47,3 +47,4 @@ export const userGenders = {
   type: new GraphQLList(UserGenderType),
   resolve: getGenders
 }
+// think this connects to finding the different product 'types'

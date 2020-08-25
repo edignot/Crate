@@ -26,6 +26,11 @@ export const userSignup = {
   },
   resolve: create
 }
+/* should we set some sort of default for the new attributes we're adding, or
+should we instead ask for them on creation? Leaning towards defaults, myself
+
+we're missing an entire update function - probably something we need to do
+especially since letting users adjust emails is one of the track focuses */
 
 // Remove
 export const userRemove = {
