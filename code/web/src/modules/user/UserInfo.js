@@ -38,8 +38,7 @@ class UserInfo extends React.Component {
     };
 
     fileSelectedHandler = (e) => {
-        // console.log('SELECTED FILE', e.target.files[0]);
-        // console.log(URL.createObjectURL(e.target.files[0]));
+        console.log(URL.createObjectURL(e.target.files[0]));
         this.setState({
             image: URL.createObjectURL(e.target.files[0]),
         });
@@ -112,7 +111,7 @@ class UserInfo extends React.Component {
 
     renderInfo = () => {
         return (
-            <section style={infoContainer}>
+            <section style={infoContainer} >
                 <section style={imageEmailNameWrapper}>
                     <div style={imageWrapper}>
                         <img src={this.state.image} style={imageStyle} />
