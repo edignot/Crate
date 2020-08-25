@@ -9,6 +9,7 @@ export const userInitialState = {
   isAuthenticated: false,
   details: null
 }
+// an initial, default state where there is no user saved
 
 // State
 export default (state = userInitialState, action) => {
@@ -20,6 +21,8 @@ export default (state = userInitialState, action) => {
         details: action.user,
       }
 
+      // state for when a user is logged in
+
     case LOGIN_REQUEST:
       return {
         ...state,
@@ -27,12 +30,16 @@ export default (state = userInitialState, action) => {
         isLoading: action.isLoading
       }
 
+      // state for when a user is trying to log in
+
     case LOGIN_RESPONSE:
       return {
         ...state,
         error: action.error,
         isLoading: false
       }
+
+      // state for when the API responds to the user having tried to log in
 
     case LOGOUT:
       return {
@@ -42,6 +49,8 @@ export default (state = userInitialState, action) => {
         isAuthenticated: false,
         details: null
       }
+
+      // state for when the user logs out
 
     default:
       return state

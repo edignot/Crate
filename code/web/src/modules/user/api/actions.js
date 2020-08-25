@@ -24,6 +24,8 @@ export function setUser(token, user) {
 
   return { type: SET_USER, user }
 }
+// authorization token put in the header of the posted API request
+
 
 // Login a user using credentials
 export function login(userCredentials, isLoading = true) {
@@ -65,6 +67,9 @@ export function login(userCredentials, isLoading = true) {
       })
   }
 }
+/* requires user to authorize w/ credentials before they're logged in here. If
+the credentials are correct, sets the user to be the one that correlates */
+
 
 // Set user token and info in localStorage and cookie
 export function loginSetUserLocalStorageAndCookie(token, user) {
@@ -75,6 +80,7 @@ export function loginSetUserLocalStorageAndCookie(token, user) {
   // Set cookie for SSR
   cookie.set('auth', { token, user }, { path: '/' })
 }
+// sets up a local cookie for the browser to keep logged in
 
 // Register a user
 export function register(userDetails) {
@@ -86,6 +92,7 @@ export function register(userDetails) {
     }))
   }
 }
+// posts the user details for us to create a user on the back end side
 
 // Log out user and remove token from localStorage
 export function logout() {
@@ -97,6 +104,7 @@ export function logout() {
     })
   }
 }
+// logs out a user
 
 // Unset user token and info in localStorage and cookie
 export function logoutUnsetUserLocalStorageAndCookie() {
@@ -107,6 +115,7 @@ export function logoutUnsetUserLocalStorageAndCookie() {
   // Remove cookie
   cookie.remove('auth')
 }
+// helper method that gets rid of the cookie telling the browser you're logged in
 
 // Get user gender
 export function getGenders() {
@@ -117,3 +126,5 @@ export function getGenders() {
     }))
   }
 }
+
+// sets a user's gender, presumably for product purproses
