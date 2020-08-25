@@ -15,11 +15,26 @@ describe('<UserInfo/>', () => {
 
     beforeEach(() => {
         store = createStore(rootReducer, {
-            name: 'The User',
-            email: 'user@crate.com',
-            role: 'USER',
+            common: null,
+            user: {
+                error: null,
+                isLoading: false,
+                isAuthenticated: true,
+                details: {
+                    name: 'testName',
+                    email: 'test@test.com',
+                    role: null,
+                },
+            },
+            products: null,
+            product: null,
+            productsRelated: null,
+            subscriptions: null,
+            subscriptionsByUser: null,
+            subscription: null,
+            crates: null,
+            crate: null,
         });
-
         UserInfoContainer = render(
             <Provider store={store}>
                 <BrowserRouter>
