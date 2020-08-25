@@ -27,6 +27,7 @@ const Grid = (props) => {
     }
     return GridCell
   })
+  // so presumably this creates a grid that is composed of these different grid cells?
 
   return (
     <div {...others}>

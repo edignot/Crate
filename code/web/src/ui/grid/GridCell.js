@@ -35,6 +35,8 @@ const GridCell = (props) => {
   )
 }
 
+//and these cells are all aligned to be positioned in different places on the page?
+
 // Component Properties
 GridCell.propTypes = {
   alignTop: PropTypes.bool,
