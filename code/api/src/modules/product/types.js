@@ -30,4 +30,6 @@ const ProductTypesType = new GraphQLObjectType({
   })
 })
 
+// for when the user looks at either "men's" or "women's" clothing
+
 export { ProductType, ProductTypesType }

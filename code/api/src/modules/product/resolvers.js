@@ -40,7 +40,7 @@ export async function getRelated(parentValue, { productId }) {
     limit: 3,
     order: [[models.Sequelize.fn('RAND')]] // mock related products by showing random products
   })
-}
+} // Theoretically this should be something, but don't think this is related to our track
 
 // Create product
 export async function create(parentValue, { name, slug, description, type, gender, image }, { auth }) {
@@ -57,6 +57,7 @@ export async function create(parentValue, { name, slug, description, type, gende
     throw new Error('Operation denied.')
   }
 }
+//like crates, require admin authority to create
 
 // Update product
 export async function update(parentValue, { id, name, slug, description, type, gender, image }, { auth }) {
@@ -76,6 +77,7 @@ export async function update(parentValue, { id, name, slug, description, type, g
     throw new Error('Operation denied.')
   }
 }
+//also update and delete
 
 // Delete product
 export async function remove(parentValue, { id }, { auth }) {

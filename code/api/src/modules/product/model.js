@@ -21,5 +21,6 @@ module.exports = function(sequelize, DataTypes) {
     image: {
       type: DataTypes.TEXT
     }
+    // this is a link for the image. Might reuse code for user images?
   })
-}
+} // otherwise, these are just the relevant attributes of the product model.

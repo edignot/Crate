@@ -41,6 +41,7 @@ export const productCreate = {
   },
   resolve: create
 }
+// we need all this data - name, slug, desc, type, etc. to create a product.
 
 // Product update
 export const productUpdate = {
@@ -84,6 +85,8 @@ export const productUpdate = {
   resolve: update
 }
 
+// all the different attributes we can change up through the update function
+
 // Product remove
 export const productRemove = {
   type: ProductType,
@@ -95,3 +98,5 @@ export const productRemove = {
   },
   resolve: remove
 }
+
+// just need the id to delete, thankfully

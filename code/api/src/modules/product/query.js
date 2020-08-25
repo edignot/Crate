@@ -20,6 +20,8 @@ export const product = {
   resolve: getBySlug
 }
 
+// we have get by various attributes, instead of just by ID
+
 // Product By ID
 export const productById = {
   type: ProductType,
