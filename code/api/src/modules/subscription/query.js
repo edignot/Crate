@@ -16,6 +16,7 @@ export const subscriptionsByUser = {
   type: new GraphQLList(SubscriptionType),
   resolve: getByUser
 }
+// probably needed for any user who logs in to keep track
 
 // Subscription By id
 export const subscription = {

@@ -28,6 +28,7 @@ export async function getByUser(parentValue, {}, { auth }) {
     throw new Error('Please login to view your subscriptions.')
   }
 }
+// user can get all their subscriptions, when they're logged in
 
 // Get all subscriptions
 export async function getAll() {
@@ -50,6 +51,7 @@ export async function create(parentValue, { crateId }, { auth }) {
     throw new Error('Please login to subscribe to this crate.')
   }
 }
+// each user can add and delete their own subscriptions
 
 // Delete subscription
 export async function remove(parentValue, { id }, { auth }) {
