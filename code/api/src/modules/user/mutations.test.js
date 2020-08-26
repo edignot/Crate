@@ -19,11 +19,9 @@ describe('user mutations', () => {
   it('changes emails', async () => {
     const response = await request(server)
       .get('/')
-      .send({ mutation: '{ userUpdate(id: 2, email: \"user@email.com\") { id email } }' })
+      .send({ mutation: '{ userUpdate(id: 2, email: "user@email.com") { id email } }' })
+      .send({ query: '{ user(id: 2) { email } }' })
 
-    console.log(response.body)
-
-    response.expect(200)
     expect(response.body.data.user.email).toEqual("user@email.com")
   })
 
