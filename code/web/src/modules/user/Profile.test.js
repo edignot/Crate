@@ -26,9 +26,6 @@ describe('Profile', () => {
       }
     })
   })
-  it('should return true', () => {
-    expect(true).toEqual(true)
-  })
 
   it('should render other components', () => {
     const { getByText, getByTestId } = render(
@@ -97,4 +94,34 @@ describe('Profile', () => {
     expect(newDescription).toBeInTheDocument()
     expect(newAddress).toBeInTheDocument()
   })
+
+  it('should reflect saved changes after editing', () => {
+    const { getByTestId, getByText } = render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <Profile />
+        </Provider>
+      </BrowserRouter>
+    )
+
+    const editBtn = getByTestId('editUserBtn')
+    fireEvent.click(editBtn)
+
+    const emailInput = getByTestId('emailInput')
+    
+    fireEvent.change(emailInput, { target: { value: 'email@test.com'} })
+    fireEvent.click(editBtn)
+
+    const newEmail = getByText('email@test.com')
+
+    expect(newEmail).toBeInTheDocument()
+  })
+
+  // Need tests related to profile picture
+  // Need sad paths once error handling is implemented:
+  //  should print a message if email is left empty
+  //  should print a message if shipping address is left empty
+  //  should print a message if description is left empty
+  //  should print a message if the profile pic is left empty
+  // ABOVE TESTS ARE JUST INITIAL THOUGHTS...MAY NOT NEED THEM IN THE FUTURE
 })
