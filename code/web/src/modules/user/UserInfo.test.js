@@ -15,7 +15,6 @@ describe('<UserInfo/>', () => {
 
     beforeEach(() => {
         store = createStore(rootReducer, {
-            common: null,
             user: {
                 error: null,
                 isLoading: false,
@@ -26,14 +25,6 @@ describe('<UserInfo/>', () => {
                     role: null,
                 },
             },
-            products: null,
-            product: null,
-            productsRelated: null,
-            subscriptions: null,
-            subscriptionsByUser: null,
-            subscription: null,
-            crates: null,
-            crate: null,
         });
         UserInfoContainer = render(
             <Provider store={store}>
@@ -45,6 +36,12 @@ describe('<UserInfo/>', () => {
     });
 
     afterEach(cleanup);
+
+    // User Info display mode
+    test('Edit profile button is displayed correctly when in display mode', () => {
+        const { getByText } = UserInfoContainer;
+        expect(getByText('Edit')).toBeInTheDocument();
+    });
 
     test('User image or image placeholder is displayed correctly when in display mode', () => {
         const { getByTestId } = UserInfoContainer;
@@ -80,7 +77,42 @@ describe('<UserInfo/>', () => {
         const { getByText } = UserInfoContainer;
         expect(getByText('Add your shipping address')).toBeInTheDocument();
     });
+
+    // User Info edit mode
+    test('Save changes button is displayed correctly when in edit mode', () => {
+        const { getByText } = UserInfoContainer;
+        fireEvent.click(getByText('Edit'));
+        expect(getByText('Save Changes')).toBeInTheDocument();
+    });
+
+    test('User image or image placeholder is displayed correctly when in edit mode', () => {
+        const { getByTestId, getByText } = UserInfoContainer;
+        fireEvent.click(getByText('Edit'));
+        expect(getByTestId('user-img')).toBeInTheDocument();
+    });
+
+    test('User name is displayed correctly when in edit mode', () => {
+        const { getByText } = UserInfoContainer;
+        fireEvent.click(getByText('Edit'));
+        expect(getByText('name')).toBeInTheDocument();
+    });
+
+    // test('User description placeholder displayed correctly when in edit mode', () => {
+    //     const { getByText, getByTestId } = UserInfoContainer;
+    //     fireEvent.click(getByText('Edit'));
+    //     expect(getByTestId('email-input').value).toBe('email@email.com');
+    // });
+
+    test('User email placeholder is displayed correctly when in edit mode', () => {
+        const { getByText, getByTestId } = UserInfoContainer;
+        fireEvent.click(getByText('Edit'));
+        expect(getByTestId('email-input').value).toBe('email@email.com');
+    });
 });
 
-// expect(getByTestId('note-input')).toBeInTheDocument();
-// data - testid = 'title';
+//  test('Change state input value updates', () => {
+//      const { getByLabelText } = SearchContainer;
+// getByLabelText('Change state:').value = 'AK';
+// fireEvent.change(getByLabelText('Change state:'));
+//      expect(getByLabelText('Change state:').value).toBe('AK');
+//  });

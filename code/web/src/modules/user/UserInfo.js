@@ -64,7 +64,11 @@ class UserInfo extends React.Component {
             <section style={infoContainer}>
                 <section style={imageEmailNameWrapper}>
                     <div style={imageWrapper}>
-                        <img src={this.state.image} style={imageStyle} />
+                        <img
+                            src={this.state.image}
+                            style={imageStyle}
+                            data-testid='user-img'
+                        />
                         <div style={imageUpload}>
                             <input
                                 type='file'
@@ -79,6 +83,7 @@ class UserInfo extends React.Component {
                     <section style={emailNameWrapper}>
                         <H3>{this.props.user.details.name}</H3>
                         <Input
+                            data-testid='email-input'
                             type='text'
                             name='emailInput'
                             value={this.state.emailInput}
