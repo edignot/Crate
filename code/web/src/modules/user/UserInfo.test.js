@@ -91,6 +91,12 @@ describe('<UserInfo/>', () => {
         expect(getByTestId('user-img')).toBeInTheDocument();
     });
 
+    test('User image upload input is displayed correctly when in edit mode', () => {
+        const { getByTestId, getByText } = UserInfoContainer;
+        fireEvent.click(getByText('Edit'));
+        expect(getByTestId('image-input')).toBeInTheDocument();
+    });
+
     test('User name is displayed correctly when in edit mode', () => {
         const { getByText } = UserInfoContainer;
         fireEvent.click(getByText('Edit'));

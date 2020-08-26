@@ -71,6 +71,7 @@ class UserInfo extends React.Component {
                         />
                         <div style={imageUpload}>
                             <input
+                                data-testid='image-input'
                                 type='file'
                                 onChange={this.fileSelectedHandler}
                             />
