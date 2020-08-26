@@ -20,6 +20,7 @@ describe('user mutations', () => {
     const response = await request(server)
       .get('/')
       .send({ mutation: '{ userUpdate(id: 2, email: "user@email.com") { id email } }' })
+      .expect(200)
       .send({ query: '{ user(id: 2) { email } }' })
 
     expect(response.body.data.user.email).toEqual("user@email.com")
