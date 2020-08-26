@@ -19,7 +19,7 @@ class UserInfo extends React.Component {
         this.state = {
             isEditing: false,
             emailInput: '',
-            userDescription: 'Add your description',
+            userDescription: '',
             shippingAddressInput: '',
             image: null,
         };

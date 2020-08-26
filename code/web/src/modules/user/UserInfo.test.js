@@ -60,6 +60,26 @@ describe('<UserInfo/>', () => {
         const { getByText } = UserInfoContainer;
         expect(getByText('email@email.com')).toBeInTheDocument();
     });
+
+    test('Description title is displayed correctly when in display mode', () => {
+        const { getByText } = UserInfoContainer;
+        expect(getByText('About me')).toBeInTheDocument();
+    });
+
+    test('Description is displayed correctly when in display mode', () => {
+        const { getByText } = UserInfoContainer;
+        expect(getByText('Add a description')).toBeInTheDocument();
+    });
+
+    test('Shipping address header is displayed correctly when in display mode', () => {
+        const { getByText } = UserInfoContainer;
+        expect(getByText('Shipping Address')).toBeInTheDocument();
+    });
+
+    test('Shipping address is displayed correctly when in display mode', () => {
+        const { getByText } = UserInfoContainer;
+        expect(getByText('Add your shipping address')).toBeInTheDocument();
+    });
 });
 
 // expect(getByTestId('note-input')).toBeInTheDocument();
