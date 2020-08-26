@@ -97,22 +97,58 @@ describe('<UserInfo/>', () => {
         expect(getByText('name')).toBeInTheDocument();
     });
 
-    // test('User description placeholder displayed correctly when in edit mode', () => {
-    //     const { getByText, getByTestId } = UserInfoContainer;
-    //     fireEvent.click(getByText('Edit'));
-    //     expect(getByTestId('email-input').value).toBe('email@email.com');
-    // });
-
     test('User email placeholder is displayed correctly when in edit mode', () => {
         const { getByText, getByTestId } = UserInfoContainer;
         fireEvent.click(getByText('Edit'));
         expect(getByTestId('email-input').value).toBe('email@email.com');
     });
-});
 
-//  test('Change state input value updates', () => {
-//      const { getByLabelText } = SearchContainer;
-// getByLabelText('Change state:').value = 'AK';
-// fireEvent.change(getByLabelText('Change state:'));
-//      expect(getByLabelText('Change state:').value).toBe('AK');
-//  });
+    test('User email input value can be changed when in edit mode', () => {
+        const { getByText, getByTestId } = UserInfoContainer;
+        fireEvent.click(getByText('Edit'));
+        getByTestId('email-input').value = 'changed@changed.com';
+        expect(getByTestId('email-input').value).toBe('changed@changed.com');
+    });
+
+    test('Description title is displayed correctly when in edit mode', () => {
+        const { getByText } = UserInfoContainer;
+        fireEvent.click(getByText('Edit'));
+        expect(getByText('About me')).toBeInTheDocument();
+    });
+
+    test('Description placeholder is displayed correctly when in edit mode', () => {
+        const { getByText, getByTestId } = UserInfoContainer;
+        fireEvent.click(getByText('Edit'));
+        expect(getByTestId('description-input').value).toBe(
+            'Add a description'
+        );
+    });
+
+    test('Description value can be changed when in edit mode', () => {
+        const { getByText, getByTestId } = UserInfoContainer;
+        fireEvent.click(getByText('Edit'));
+        getByTestId('description-input').value = 'changed';
+        expect(getByTestId('description-input').value).toBe('changed');
+    });
+
+    test('Shipping address header is displayed correctly when in edit mode', () => {
+        const { getByText } = UserInfoContainer;
+        fireEvent.click(getByText('Edit'));
+        expect(getByText('Shipping Address')).toBeInTheDocument();
+    });
+
+    test('Shipping placeholder is displayed correctly when in edit mode', () => {
+        const { getByText, getByTestId } = UserInfoContainer;
+        fireEvent.click(getByText('Edit'));
+        expect(getByTestId('shipping-input').value).toBe(
+            'Add your shipping address'
+        );
+    });
+
+    test('Shipping address can be changed when in edit mode', () => {
+        const { getByText, getByTestId } = UserInfoContainer;
+        fireEvent.click(getByText('Edit'));
+        getByTestId('shipping-input').value = 'changed';
+        expect(getByTestId('shipping-input').value).toBe('changed');
+    });
+});

@@ -95,6 +95,7 @@ class UserInfo extends React.Component {
                 <section style={descriptionWrapper}>
                     <H3>About me</H3>
                     <Textarea
+                        data-testid='description-input'
                         name='userDescription'
                         value={this.state.userDescription}
                         style={description}
@@ -105,6 +106,7 @@ class UserInfo extends React.Component {
                 <section style={shippingAddress}>
                     <H5>Shipping Address</H5>
                     <Input
+                        data-testid='shipping-input'
                         type='text'
                         name='shippingAddressInput'
                         value={this.state.shippingAddressInput}
