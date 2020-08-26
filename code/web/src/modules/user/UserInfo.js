@@ -19,7 +19,7 @@ class UserInfo extends React.Component {
         this.state = {
             isEditing: false,
             emailInput: '',
-            userDescription: '',
+            userDescription: 'Add your description',
             shippingAddressInput: '',
             image: null,
         };
@@ -88,6 +88,7 @@ class UserInfo extends React.Component {
                 </section>
 
                 <section style={descriptionWrapper}>
+                    <H3>About me</H3>
                     <Textarea
                         name='userDescription'
                         value={this.state.userDescription}
@@ -111,10 +112,14 @@ class UserInfo extends React.Component {
 
     renderInfo = () => {
         return (
-            <section style={infoContainer} >
+            <section style={infoContainer}>
                 <section style={imageEmailNameWrapper}>
                     <div style={imageWrapper}>
-                        <img src={this.state.image} style={imageStyle} />
+                        <img
+                            src={this.state.image}
+                            style={imageStyle}
+                            data-testid='user-img'
+                        />
                     </div>
 
                     <section style={emailNameWrapper}>
@@ -124,6 +129,7 @@ class UserInfo extends React.Component {
                 </section>
 
                 <section style={descriptionWrapper}>
+                    <H3>About me</H3>
                     <p style={description}>{this.state.userDescription}</p>
                 </section>
 

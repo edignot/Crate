@@ -21,8 +21,8 @@ describe('<UserInfo/>', () => {
                 isLoading: false,
                 isAuthenticated: true,
                 details: {
-                    name: 'testName',
-                    email: 'test@test.com',
+                    name: 'name',
+                    email: 'email@email.com',
                     role: null,
                 },
             },
@@ -46,7 +46,21 @@ describe('<UserInfo/>', () => {
 
     afterEach(cleanup);
 
-    test('<UserInfo/> component successfully renders', () => {
-        expect(true).toBeTruthy();
+    test('User image or image placeholder is displayed correctly when in display mode', () => {
+        const { getByTestId } = UserInfoContainer;
+        expect(getByTestId('user-img')).toBeInTheDocument();
+    });
+
+    test('User name is displayed correctly when in display mode', () => {
+        const { getByText } = UserInfoContainer;
+        expect(getByText('name')).toBeInTheDocument();
+    });
+
+    test('User email is displayed correctly when in display mode', () => {
+        const { getByText } = UserInfoContainer;
+        expect(getByText('email@email.com')).toBeInTheDocument();
     });
 });
+
+// expect(getByTestId('note-input')).toBeInTheDocument();
+// data - testid = 'title';
