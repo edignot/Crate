@@ -68,6 +68,11 @@ export async function getAll() {
   return await models.User.findAll()
 }
 
+// Update
+export async function update(parentValue, { id, email }) {
+  return await models.User.update({ email }, { where: { id } })
+}
+
 // Delete
 export async function remove(parentValue, { id }) {
   return await models.User.destroy({ where: { id } })
