@@ -88,6 +88,7 @@ class UserInfo extends React.Component {
                             type='text'
                             name='emailInput'
                             value={this.state.emailInput}
+                            style={emailInput}
                             onChange={(e) => this.handleChange(e)}
                         />
                     </section>
@@ -99,7 +100,7 @@ class UserInfo extends React.Component {
                         data-testid='description-input'
                         name='userDescription'
                         value={this.state.userDescription}
-                        style={description}
+                        style={descriptionInput}
                         onChange={(e) => this.handleChange(e)}
                     />
                 </section>
@@ -111,6 +112,7 @@ class UserInfo extends React.Component {
                         type='text'
                         name='shippingAddressInput'
                         value={this.state.shippingAddressInput}
+                        style={shippingInput}
                         onChange={(e) => this.handleChange(e)}
                     />
                 </section>
@@ -132,18 +134,20 @@ class UserInfo extends React.Component {
 
                     <section style={emailNameWrapper}>
                         <H3>{this.props.user.details.name}</H3>
-                        <p>{this.state.emailInput}</p>
+                        <p style={emailInput}>{this.state.emailInput}</p>
                     </section>
                 </section>
 
                 <section style={descriptionWrapper}>
                     <H3>About me</H3>
-                    <p style={description}>{this.state.userDescription}</p>
+                    <p style={descriptionInput}>{this.state.userDescription}</p>
                 </section>
 
                 <section style={shippingAddress}>
                     <H5>Shipping Address</H5>
-                    <p>{this.state.shippingAddressInput}</p>
+                    <p style={shippingInput}>
+                        {this.state.shippingAddressInput}
+                    </p>
                 </section>
             </section>
         );
@@ -222,20 +226,34 @@ const imageUpload = {
 
 const descriptionWrapper = {
     margin: 'auto',
-    marginTop: '50px',
+    marginTop: '30px',
     width: '80%',
     height: 'auto',
 };
 
-const description = {
+const descriptionInput = {
     width: '100%',
     padding: '0',
     margin: '0',
     height: '150px',
+    marginTop: '30px',
 };
 
 const shippingAddress = {
-    paddingTop: '50px',
+    paddingTop: '30px',
     width: '80%',
     margin: 'auto',
+};
+
+const shippingInput = {
+    width: '100%',
+    padding: '0',
+    margin: '0',
+    marginTop: '30px',
+};
+
+const emailInput = {
+    padding: '0',
+    margin: '0',
+    marginTop: '30px',
 };
