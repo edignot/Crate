@@ -7,6 +7,9 @@ import { H3, H5 } from '../../ui/typography';
 import { Input, File, Textarea } from '../../ui/input';
 import { level1 } from '../../ui/common/shadows';
 import Button from '../../ui/button';
+// image route
+import { routeImage } from '../../../setup/routes';
+
 // Constants
 const IMG_PLACEHOLDER_URL =
     'https://www.ludwigfawcett.com/vsites/storage/allied/071C/user_files/image/staff/user-placeholder.png';
@@ -18,45 +21,51 @@ class UserInfo extends React.Component {
             emailInput: '',
             userDescription: '',
             shippingAddressInput: '',
+            imageUrl: null,
             image: null,
         };
     }
     componentDidMount = () => {
         const user = this.props.user.details;
-        const image = this.state.image ? this.state.image : IMG_PLACEHOLDER_URL;
+        const imageUrl = this.props.user.imageUrl
+            ? this.props.user.imageUrl
+            : IMG_PLACEHOLDER_URL;
+
         this.setState({
             emailInput: user.email,
             userDescription: user.description || 'Add a description',
             shippingAddressInput:
                 user.shippingAddress || 'Add your shipping address',
-            image,
+            imageUrl,
         });
     };
+
     fileSelectedHandler = (e) => {
-        console.log(URL.createObjectURL(e.target.files[0]));
+        const imageData = new FormData();
+        imageData.append('image', e.target.files[0]);
+        console.log('IMAGE DATA', imageData);
         this.setState({
-            image: URL.createObjectURL(e.target.files[0]),
+            imageUrl: URL.createObjectURL(e.target.files[0]),
+            image: imageData,
         });
     };
-    // fileUploadHandler = (e) => {
-    //     const imageData = new FormData();
-    //     imageData.append('image', this.state.image);
-    //     alert('New image form data added');
-    // };
+
     toggleEdit = () => {
         this.setState({ isEditing: !this.state.isEditing });
     };
+
     handleChange = (e) => {
         const { name, value } = e.target;
         this.setState({ [name]: value });
     };
+    
     renderInputs = () => {
         return (
             <section style={infoContainer}>
                 <section style={imageEmailNameWrapper}>
                     <div style={imageWrapper}>
                         <img
-                            src={this.state.image}
+                            src={this.state.imageUrl}
                             style={imageStyle}
                             data-testid='user-img'
                         />
@@ -110,7 +119,7 @@ class UserInfo extends React.Component {
                 <section style={imageEmailNameWrapper}>
                     <div style={imageWrapper}>
                         <img
-                            src={this.state.image}
+                            src={this.state.imageUrl}
                             style={imageStyle}
                             data-testid='user-img'
                         />
@@ -157,6 +166,7 @@ function profileState(state) {
     };
 }
 export default connect(profileState)(UserInfo);
+
 // Styling
 const style = {
     minHeight: '70vh',
