@@ -2,17 +2,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 // UI Imports
 import { H3, H5 } from '../../ui/typography';
 import { Input, File, Textarea } from '../../ui/input';
 import { level1 } from '../../ui/common/shadows';
 import Button from '../../ui/button';
-
 // Constants
 const IMG_PLACEHOLDER_URL =
     'https://www.ludwigfawcett.com/vsites/storage/allied/071C/user_files/image/staff/user-placeholder.png';
-
 class UserInfo extends React.Component {
     constructor() {
         super();
@@ -24,7 +21,6 @@ class UserInfo extends React.Component {
             image: null,
         };
     }
-
     componentDidMount = () => {
         const user = this.props.user.details;
         const image = this.state.image ? this.state.image : IMG_PLACEHOLDER_URL;
@@ -36,29 +32,24 @@ class UserInfo extends React.Component {
             image,
         });
     };
-
     fileSelectedHandler = (e) => {
         console.log(URL.createObjectURL(e.target.files[0]));
         this.setState({
             image: URL.createObjectURL(e.target.files[0]),
         });
     };
-
     // fileUploadHandler = (e) => {
     //     const imageData = new FormData();
     //     imageData.append('image', this.state.image);
     //     alert('New image form data added');
     // };
-
     toggleEdit = () => {
         this.setState({ isEditing: !this.state.isEditing });
     };
-
     handleChange = (e) => {
         const { name, value } = e.target;
         this.setState({ [name]: value });
     };
-
     renderInputs = () => {
         return (
             <section style={infoContainer}>
@@ -113,7 +104,6 @@ class UserInfo extends React.Component {
             </section>
         );
     };
-
     renderInfo = () => {
         return (
             <section style={infoContainer}>
@@ -143,7 +133,6 @@ class UserInfo extends React.Component {
             </section>
         );
     };
-
     render() {
         return (
             <section style={style}>
@@ -161,16 +150,13 @@ class UserInfo extends React.Component {
         );
     }
 }
-
 // Component State
 function profileState(state) {
     return {
         user: state.user,
     };
 }
-
 export default connect(profileState)(UserInfo);
-
 // Styling
 const style = {
     minHeight: '70vh',
@@ -179,49 +165,43 @@ const style = {
     boxShadow: level1,
     borderRadius: '5px',
 };
-
 const editSaveButton = {
     alignSelf: 'flex-end',
     width: '20%',
     margin: '10px',
 };
-
 const infoContainer = {
     width: '90%',
     margin: '0 auto',
 };
-
 const imageEmailNameWrapper = {
     display: 'flex',
+    textAlign: 'center',
 };
-
 const emailNameWrapper = {
     width: '80%',
     margin: 'auto',
+    textAlign: 'center',
 };
-
 const imageWrapper = {
     width: '20%',
     display: 'flex',
     flexDirection: 'column',
 };
-
 const imageStyle = {
     width: '100%',
     borderRadius: '50%',
 };
-
 const imageUpload = {
     position: 'absolute',
 };
-
 const descriptionWrapper = {
     margin: 'auto',
     marginTop: '30px',
     width: '80%',
     height: 'auto',
+    textAlign: 'center',
 };
-
 const descriptionInput = {
     width: '100%',
     padding: '0',
@@ -229,20 +209,18 @@ const descriptionInput = {
     height: '150px',
     marginTop: '30px',
 };
-
 const shippingAddress = {
     paddingTop: '30px',
     width: '80%',
     margin: 'auto',
+    textAlign: 'center',
 };
-
 const shippingInput = {
     width: '100%',
     padding: '0',
     margin: '0',
     marginTop: '30px',
 };
-
 const emailInput = {
     padding: '0',
     margin: '0',
