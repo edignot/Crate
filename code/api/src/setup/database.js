@@ -16,7 +16,7 @@ const connection = new Sequelize(databaseConfigEnv.database, databaseConfigEnv.u
 })
 
 // Test connection
-/* console.info('SETUP - Connecting database...')
+console.info('SETUP - Connecting database...')
 
 connection
   .authenticate()
@@ -25,6 +25,6 @@ connection
   })
   .catch(err => {
     console.error('ERROR - Unable to connect to the database:', err)
-  }) */
+  })
 
 export default connection
