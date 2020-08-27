@@ -23,8 +23,14 @@
     "url": "https://github.com/atulmy/crate/issues"
   },
   "homepage": "https://github.com/atulmy/crate#readme",
-  "dependencies": {},
+  "dependencies": {
+    "jest-cli": "^26.4.2",
+    "redux-devtools-extension": "^2.13.8"
+  },
   "devDependencies": {
-    "concurrently": "^4.1.0"
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^10.4.9",
+    "concurrently": "^4.1.0",
+    "jest": "^26.4.2"
   }
 }

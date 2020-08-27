@@ -46,17 +46,20 @@ class UserInfo extends React.Component {
           name='emailInput'
           value={this.state.emailInput}
           onChange={e => this.handleChange(e)}
+          data-testid='emailInput'
         />
         <Textarea 
           name='userDescription'
           value={this.state.userDescription}
           onChange={e => this.handleChange(e)}
+          data-testId='userDescriptionInput'
         />
         <Input 
           type='text'
           name='shippingAddressInput'
           value={this.state.shippingAddressInput}
           onChange={e => this.handleChange(e)}
+          data-testid='shippingAddressInput'
         />
       </section>
     )
@@ -81,8 +84,8 @@ class UserInfo extends React.Component {
     return (
       <section>
         {this.state.isEditing ? 
-          <button onClick={this.toggleEdit}>Save Changes</button> :
-          <button onClick={this.toggleEdit}>Edit</button>
+          <button data-testid='editUserBtn' onClick={this.toggleEdit}>Save Changes</button> :
+          <button data-testid='editUserBtn' onClick={this.toggleEdit}>Edit</button>
         }
         {this.state.isEditing ? 
           this.renderInputs() :
