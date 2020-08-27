@@ -10,243 +10,241 @@ import { level1 } from '../../ui/common/shadows';
 import Button from '../../ui/button';
 
 // Constants
-const IMG_PLACEHOLDER_URL = 'https://www.ludwigfawcett.com/vsites/storage/allied/071C/user_files/image/staff/user-placeholder.png';
+const IMG_PLACEHOLDER_URL =
+    'https://www.ludwigfawcett.com/vsites/storage/allied/071C/user_files/image/staff/user-placeholder.png';
 
 class UserInfo extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      isEditing: false,
-      emailInput: '',
-      userDescription: '',
-      shippingAddressInput: '',
-      image: null,
+    constructor() {
+        super();
+        this.state = {
+            isEditing: false,
+            emailInput: '',
+            userDescription: '',
+            shippingAddressInput: '',
+            image: null,
+        };
+    }
+
+    componentDidMount = () => {
+        const user = this.props.user.details;
+        const image = this.state.image ? this.state.image : IMG_PLACEHOLDER_URL;
+        this.setState({
+            emailInput: user.email,
+            userDescription: user.description || 'Add a description',
+            shippingAddressInput:
+                user.shippingAddress || 'Add your shipping address',
+            image,
+        });
     };
-  }
-  
-  componentDidMount = () => {
-    const user = this.props.user.details;
-    const image = this.state.image ? this.state.image : IMG_PLACEHOLDER_URL;
-    this.setState({
-      emailInput: user.email,
-      userDescription: user.description || 'Add a description',
-      shippingAddressInput:
-        user.shippingAddress || 'Add your shipping address',
-      image,
-    });
-  };
 
-  fileSelectedHandler = (e) => {
-    console.log(URL.createObjectURL(e.target.files[0]));
-    this.setState({
-      image: URL.createObjectURL(e.target.files[0]),
-    });
-  };
+    fileSelectedHandler = (e) => {
+        console.log(URL.createObjectURL(e.target.files[0]));
+        this.setState({
+            image: URL.createObjectURL(e.target.files[0]),
+        });
+    };
 
-  // fileUploadHandler = (e) => {
-  //     const imageData = new FormData();
-  //     imageData.append('image', this.state.image);
-  //     alert('New image form data added');
-  // };
+    // fileUploadHandler = (e) => {
+    //     const imageData = new FormData();
+    //     imageData.append('image', this.state.image);
+    //     alert('New image form data added');
+    // };
 
-  toggleEdit = () => {
-    this.setState({ isEditing: !this.state.isEditing });
-  };
+    toggleEdit = () => {
+        this.setState({ isEditing: !this.state.isEditing });
+    };
 
-  handleChange = (e) => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  };
+    handleChange = (e) => {
+        const { name, value } = e.target;
+        this.setState({ [name]: value });
+    };
 
-  renderInputs = () => {
-    return (
-      <section style={infoContainer}>
-        <section style={imageEmailNameWrapper}>
-          <div style={imageWrapper}>
-            <img
-              src={this.state.image}
-              style={imageStyle}
-              data-testid='user-img'
-            />
-            <div style={imageUpload}>
-              <input
-                data-testid='image-input'
-                type='file'
-                onChange={this.fileSelectedHandler}
-              />
-              {/* <Button onClick={this.fileUploadHandler}>
-                  UPLOAD
-              </Button> */}
-            </div>
-          </div>
-          <section style={emailNameWrapper}>
-            <H3>{this.props.user.details.name}</H3>
-            <Input
-              data-testid='email-input'
-              type='text'
-              name='emailInput'
-              value={this.state.emailInput}
-              style={emailInput}
-              onChange={(e) => this.handleChange(e)}
-            />
-          </section>
-        </section>
-        <section style={descriptionWrapper}>
-          <H3>About me</H3>
-          <Textarea
-            data-testid='description-input'
-            name='userDescription'
-            value={this.state.userDescription}
-            style={descriptionInput}
-            onChange={(e) => this.handleChange(e)}
-          />
-        </section>
-        <section style={shippingAddress}>
-          <H5>Shipping Address</H5>
-          <Input
-            data-testid='shipping-input'
-            type='text'
-            name='shippingAddressInput'
-            value={this.state.shippingAddressInput}
-            style={shippingInput}
-            onChange={(e) => this.handleChange(e)}
-          />
-        </section>
-      </section>
-    );
-  };
+    renderInputs = () => {
+        return (
+            <section style={infoContainer}>
+                <section style={imageEmailNameWrapper}>
+                    <div style={imageWrapper}>
+                        <img
+                            src={this.state.image}
+                            style={imageStyle}
+                            data-testid='user-img'
+                        />
+                        <div style={imageUpload}>
+                            <input
+                                data-testid='image-input'
+                                type='file'
+                                onChange={this.fileSelectedHandler}
+                            />
+                        </div>
+                    </div>
+                    <section style={emailNameWrapper}>
+                        <H3>{this.props.user.details.name}</H3>
+                        <Input
+                            data-testid='email-input'
+                            type='text'
+                            name='emailInput'
+                            value={this.state.emailInput}
+                            style={emailInput}
+                            onChange={(e) => this.handleChange(e)}
+                        />
+                    </section>
+                </section>
+                <section style={descriptionWrapper}>
+                    <H3>About me</H3>
+                    <Textarea
+                        data-testid='description-input'
+                        name='userDescription'
+                        value={this.state.userDescription}
+                        style={descriptionInput}
+                        onChange={(e) => this.handleChange(e)}
+                    />
+                </section>
+                <section style={shippingAddress}>
+                    <H5>Shipping Address</H5>
+                    <Input
+                        data-testid='shipping-input'
+                        type='text'
+                        name='shippingAddressInput'
+                        value={this.state.shippingAddressInput}
+                        style={shippingInput}
+                        onChange={(e) => this.handleChange(e)}
+                    />
+                </section>
+            </section>
+        );
+    };
 
-  renderInfo = () => {
-    return (
-      <section style={infoContainer}>
-        <section style={imageEmailNameWrapper}>
-          <div style={imageWrapper}>
-            <img
-              src={this.state.image}
-              style={imageStyle}
-              data-testid='user-img'
-            />
-          </div>
-          <section style={emailNameWrapper}>
-            <H3>{this.props.user.details.name}</H3>
-            <p style={emailInput}>{this.state.emailInput}</p>
-          </section>
-        </section>
-        <section style={descriptionWrapper}>
-          <H3>About me</H3>
-          <p style={descriptionInput}>{this.state.userDescription}</p>
-        </section>
-        <section style={shippingAddress}>
-          <H5>Shipping Address</H5>
-          <p style={shippingInput}>
-            {this.state.shippingAddressInput}
-          </p>
-        </section>
-      </section>
-    );
-  };
+    renderInfo = () => {
+        return (
+            <section style={infoContainer}>
+                <section style={imageEmailNameWrapper}>
+                    <div style={imageWrapper}>
+                        <img
+                            src={this.state.image}
+                            style={imageStyle}
+                            data-testid='user-img'
+                        />
+                    </div>
+                    <section style={emailNameWrapper}>
+                        <H3>{this.props.user.details.name}</H3>
+                        <p style={emailInput}>{this.state.emailInput}</p>
+                    </section>
+                </section>
+                <section style={descriptionWrapper}>
+                    <H3>About me</H3>
+                    <p style={descriptionInput}>{this.state.userDescription}</p>
+                </section>
+                <section style={shippingAddress}>
+                    <H5>Shipping Address</H5>
+                    <p style={shippingInput}>
+                        {this.state.shippingAddressInput}
+                    </p>
+                </section>
+            </section>
+        );
+    };
 
-  render() {
-    return (
-      <section style={style}>
-        {this.state.isEditing ? (
-          <button onClick={this.toggleEdit} style={editSaveButton}>
-            Save Changes
-          </button>
-        ) : (
-          <button onClick={this.toggleEdit} style={editSaveButton}>
-            Edit
-          </button>
-        )}
-        {this.state.isEditing ? this.renderInputs() : this.renderInfo()}
-      </section>
-    );
-  }
+    render() {
+        return (
+            <section style={style}>
+                {this.state.isEditing ? (
+                    <button onClick={this.toggleEdit} style={editSaveButton}>
+                        Save Changes
+                    </button>
+                ) : (
+                    <button onClick={this.toggleEdit} style={editSaveButton}>
+                        Edit
+                    </button>
+                )}
+                {this.state.isEditing ? this.renderInputs() : this.renderInfo()}
+            </section>
+        );
+    }
 }
 
 // Component State
 function profileState(state) {
-  return {
-    user: state.user,
-  };
+    return {
+        user: state.user,
+    };
 }
 
 export default connect(profileState)(UserInfo);
 
 // Styling
 const style = {
-  minHeight: '70vh',
-  display: 'flex',
-  flexDirection: 'column',
-  boxShadow: level1,
-  borderRadius: '5px',
+    minHeight: '70vh',
+    display: 'flex',
+    flexDirection: 'column',
+    boxShadow: level1,
+    borderRadius: '5px',
 };
 
 const editSaveButton = {
-  alignSelf: 'flex-end',
-  width: '20%',
-  margin: '10px',
+    alignSelf: 'flex-end',
+    width: '20%',
+    margin: '10px',
 };
 
 const infoContainer = {
-  width: '90%',
-  margin: '0 auto',
+    width: '90%',
+    margin: '0 auto',
 };
 
 const imageEmailNameWrapper = {
-  display: 'flex',
+    display: 'flex',
 };
 
 const emailNameWrapper = {
-  width: '80%',
-  margin: 'auto',
+    width: '80%',
+    margin: 'auto',
 };
 
 const imageWrapper = {
-  width: '20%',
-  display: 'flex',
-  flexDirection: 'column',
+    width: '20%',
+    display: 'flex',
+    flexDirection: 'column',
 };
 
 const imageStyle = {
-  width: '100%',
-  borderRadius: '50%',
+    width: '100%',
+    borderRadius: '50%',
 };
 
 const imageUpload = {
-  position: 'absolute',
+    position: 'absolute',
 };
 
 const descriptionWrapper = {
-  margin: 'auto',
-  marginTop: '30px',
-  width: '80%',
-  height: 'auto',
+    margin: 'auto',
+    marginTop: '30px',
+    width: '80%',
+    height: 'auto',
 };
 
 const descriptionInput = {
-  width: '100%',
-  padding: '0',
-  margin: '0',
-  height: '150px',
-  marginTop: '30px',
+    width: '100%',
+    padding: '0',
+    margin: '0',
+    height: '150px',
+    marginTop: '30px',
 };
 
 const shippingAddress = {
-  paddingTop: '30px',
-  width: '80%',
-  margin: 'auto',
+    paddingTop: '30px',
+    width: '80%',
+    margin: 'auto',
 };
 
 const shippingInput = {
-  width: '100%',
-  padding: '0',
-  margin: '0',
-  marginTop: '30px',
+    width: '100%',
+    padding: '0',
+    margin: '0',
+    marginTop: '30px',
 };
 
 const emailInput = {
-  padding: '0',
-  margin: '0',
-  marginTop: '30px',
+    padding: '0',
+    margin: '0',
+    marginTop: '30px',
 };
