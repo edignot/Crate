@@ -149,11 +149,19 @@ class UserInfo extends React.Component {
         return (
             <section style={style}>
                 {this.state.isEditing ? (
-                    <button onClick={this.toggleEdit} style={editSaveButton}>
+                    <button
+                        onClick={this.toggleEdit}
+                        style={editSaveButton}
+                        data-testid='editUserBtn'
+                    >
                         Save Changes
                     </button>
                 ) : (
-                    <button onClick={this.toggleEdit} style={editSaveButton}>
+                    <button
+                        onClick={this.toggleEdit}
+                        style={editSaveButton}
+                        data-testid='editUserBtn'
+                    >
                         Edit
                     </button>
                 )}

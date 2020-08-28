@@ -94,7 +94,9 @@ describe('<UserInfo/>', () => {
     test('User email input value can be changed when in edit mode', () => {
         const { getByText, getByTestId } = UserInfoContainer;
         fireEvent.click(getByText('Edit'));
-        getByTestId('email-input').value = 'changed@changed.com';
+        fireEvent.change(getByTestId('email-input'), {
+            target: { value: 'changed@changed.com' },
+        });
         expect(getByTestId('email-input').value).toBe('changed@changed.com');
     });
     test('Description title is displayed correctly when in edit mode', () => {
