@@ -167,3 +167,10 @@ describe('<UserInfo/>', () => {
         expect(getByText('test address')).toBeInTheDocument();
     });
 });
+
+// Need sad paths once error handling is implemented:
+//  should print a message if email is left empty
+//  should print a message if shipping address is left empty
+//  should print a message if description is left empty
+//  should print a message if the profile pic is left empty
+// ABOVE TESTS ARE JUST INITIAL THOUGHTS...MAY NOT NEED THEM IN THE FUTURE
