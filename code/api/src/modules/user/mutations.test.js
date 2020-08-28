@@ -78,7 +78,7 @@ describe('user mutations', () => {
       .post('/')
       .send({
         query:
-          'mutation { userUpdate(id: 2, email: "bob@email.com", shippingAddress: "main.st") { shippingAddress } }'
+          'mutation { userUpdate(id: 2, email: "user@crate.com", shippingAddress: "main.st") { shippingAddress } }'
       })
       .expect(200)
 
