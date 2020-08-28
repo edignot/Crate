@@ -27,7 +27,41 @@ export function setUser(token, user) {
 
 // Login a user using credentials
 export function login(userCredentials, isLoading = true) {
+<<<<<<< HEAD
     return (dispatch) => {
+=======
+  return dispatch => {
+    dispatch({
+      type: LOGIN_REQUEST,
+      isLoading
+    })
+
+    return axios.post(routeApi, query({
+      operation: 'userLogin',
+      variables: userCredentials,
+      fields: ['user {name, email, role }', 'token']
+    }))
+      .then(response => {
+        let error = ''
+
+        if (response.data.errors && response.data.errors.length > 0) {
+          error = response.data.errors[0].message
+        } else if (response.data.data.userLogin.token !== '') {
+          const token = response.data.data.userLogin.token
+          const user = response.data.data.userLogin.user
+
+          dispatch(setUser(token, user))
+
+          loginSetUserLocalStorageAndCookie(token, user)
+        }
+
+        dispatch({
+          type: LOGIN_RESPONSE,
+          error
+        })
+      })
+      .catch(error => {
+>>>>>>> Add shipping address updating, tests WIP
         dispatch({
             type: LOGIN_REQUEST,
             isLoading,
