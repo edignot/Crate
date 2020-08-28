@@ -43,6 +43,11 @@ export const userUpdate = {
 
     description: {
       name: 'description',
+    type: GraphQLString
+    },
+    
+    shippingAddress: {
+      name: 'shippingAddress',
       type: GraphQLString
     }
   },
