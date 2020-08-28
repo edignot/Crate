@@ -71,7 +71,7 @@ export async function getAll() {
 // Update
 export async function update(parentValue, { id, email, description }) {
   const user = await models.User.findOne({ where: { email } })
-  if (!user) {
+  if (!user || user.id === id ) {
     return await models.User.update({
       email,
       description
