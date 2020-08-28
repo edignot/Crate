@@ -7,8 +7,9 @@ import { H3, H5 } from '../../ui/typography';
 import { Input, File, Textarea } from '../../ui/input';
 import { level1 } from '../../ui/common/shadows';
 import Button from '../../ui/button';
-// image route
+// image upload
 import { routeImage } from '../../setup/routes';
+import { upload } from '../common/api/actions';
 
 // Constants
 const IMG_PLACEHOLDER_URL =
@@ -167,7 +168,7 @@ function profileState(state) {
         user: state.user,
     };
 }
-export default connect(profileState)(UserInfo);
+export default connect(profileState, { upload })(UserInfo);
 
 // Styling
 const style = {
