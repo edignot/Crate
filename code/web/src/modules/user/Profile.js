@@ -41,16 +41,6 @@ const Profile = (props) => (
       </GridCell>
       <GridCell style={{ padding: '2em', textAlign: 'center' }}>
         <DeliveryInfo />
-
-        {/* <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
-
-        <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.email}</p>
-
-        <Link to={userRoutes.subscriptions.path}>
-          <Button theme="primary">Subscriptions</Button>
-        </Link>
-
-        <Button theme="secondary" onClick={props.logout} style={{ marginLeft: '1em' }}>Logout</Button> */}
       </GridCell>
     </Grid>
   </div>
