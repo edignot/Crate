@@ -27,9 +27,6 @@ export function setUser(token, user) {
 
 // Login a user using credentials
 export function login(userCredentials, isLoading = true) {
-<<<<<<< HEAD
-    return (dispatch) => {
-=======
   return dispatch => {
     dispatch({
       type: LOGIN_REQUEST,
@@ -61,7 +58,6 @@ export function login(userCredentials, isLoading = true) {
         })
       })
       .catch(error => {
->>>>>>> Add shipping address updating, tests WIP
         dispatch({
             type: LOGIN_REQUEST,
             isLoading,
