@@ -8,7 +8,7 @@ import { Input, File, Textarea } from '../../ui/input';
 import { level1 } from '../../ui/common/shadows';
 import Button from '../../ui/button';
 // image route
-import { routeImage } from '../../../setup/routes';
+import { routeImage } from '../../setup/routes';
 
 // Constants
 const IMG_PLACEHOLDER_URL =
@@ -22,7 +22,6 @@ class UserInfo extends React.Component {
             userDescription: '',
             shippingAddressInput: '',
             imageUrl: null,
-            image: null,
         };
     }
     componentDidMount = () => {
@@ -40,13 +39,14 @@ class UserInfo extends React.Component {
         });
     };
 
-    fileSelectedHandler = (e) => {
+    imageSelectedHandler = (e) => {
         const imageData = new FormData();
         imageData.append('image', e.target.files[0]);
+        // file imageData will be send to the database
         console.log('IMAGE DATA', imageData);
+        // temporally imgUrl
         this.setState({
             imageUrl: URL.createObjectURL(e.target.files[0]),
-            image: imageData,
         });
     };
 
@@ -58,7 +58,7 @@ class UserInfo extends React.Component {
         const { name, value } = e.target;
         this.setState({ [name]: value });
     };
-    
+
     renderInputs = () => {
         return (
             <section style={infoContainer}>
@@ -68,12 +68,13 @@ class UserInfo extends React.Component {
                             src={this.state.imageUrl}
                             style={imageStyle}
                             data-testid='user-img'
+                            alt='user image'
                         />
                         <div style={imageUpload}>
                             <input
                                 data-testid='image-input'
                                 type='file'
-                                onChange={this.fileSelectedHandler}
+                                onChange={this.imageSelectedHandler}
                             />
                         </div>
                     </div>
@@ -122,6 +123,7 @@ class UserInfo extends React.Component {
                             src={this.state.imageUrl}
                             style={imageStyle}
                             data-testid='user-img'
+                            alt='user image'
                         />
                     </div>
                     <section style={emailNameWrapper}>
