@@ -1,7 +1,7 @@
 import React from 'react';
 import Profile from './Profile';
 
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import '@testing-library/jest-dom';
 
@@ -38,5 +38,15 @@ describe('Profile', () => {
     test('Profile header is displayed correctly ', () => {
         const { getByText } = profileContainer;
         expect(getByText('My profile')).toBeInTheDocument();
+    });
+
+    test('User info card is displayed correctly ', () => {
+        const { getByText } = profileContainer;
+        expect(getByText('About me')).toBeInTheDocument();
+    });
+
+    test('Products card is displayed correctly ', () => {
+        const { getByText } = profileContainer;
+        expect(getByText('Delivery Date:')).toBeInTheDocument();
     });
 });
