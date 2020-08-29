@@ -78,8 +78,7 @@ export async function update(parentValue, { id, email, description, shippingAddr
       shippingAddress,
       imageUrl
     }, { where: { id } })
-    return getById(parentValue, { id }
-      )
+    return await models.User.findOne({ where: { id } })
   }
   else
   {
