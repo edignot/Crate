@@ -10,6 +10,7 @@ import Button from '../../ui/button'
 // image upload
 import { routeImage } from '../../setup/routes'
 import { upload, messageShow, messageHide } from '../common/api/actions'
+import { updateUser } from './api/actions'
 
 import { MdEmail, MdHome } from 'react-icons/md'
 import { BsFillPersonLinesFill } from 'react-icons/bs'
@@ -69,7 +70,11 @@ class UserInfo extends React.Component {
           this.props.messageHide()
         }, 5000)
       })
-  }
+  
+        this.props.updateUser(user)
+        this.toggleEdit()
+    }
+
 
   addDefaultImageSrc = (e) => {
     e.target.src = IMG_PLACEHOLDER_URL
@@ -82,6 +87,18 @@ class UserInfo extends React.Component {
   handleChange = (e) => {
     const { name, value } = e.target
     this.setState({ [name]: value })
+  }
+
+  saveChanges = () => {
+    const user = {
+      id: this.props.user.details.id,
+      email: this.state.emailInput,
+      description: this.state.userDescription,
+      shippingAddress: this.state.shippingAddressInput
+      // imageUrl: this.state.imageUrl 
+    }
+    this.props.updateUser(user)
+    this.toggleEdit()
   }
 
   renderInputs = () => {
@@ -146,6 +163,7 @@ class UserInfo extends React.Component {
       </section>
     )
   }
+  
   renderInfo = () => {
     return (
       <section style={infoContainer}>
@@ -181,12 +199,13 @@ class UserInfo extends React.Component {
       </section>
     )
   }
+  
   render() {
     return (
       <section style={style}>
         {this.state.isEditing ? (
           <button
-            onClick={this.toggleEdit}
+            onClick={this.saveChanges}
             style={editSaveButton}
             data-testid='editUserBtn'
           >
@@ -206,13 +225,14 @@ class UserInfo extends React.Component {
     )
   }
 }
+
 // Component State
 function profileState(state) {
   return {
     user: state.user,
   }
 }
-export default connect(profileState, { upload, messageShow, messageHide })(
+export default connect(profileState, { upload, updateUser, messageShow, messageHide })(
   UserInfo
 )
 
