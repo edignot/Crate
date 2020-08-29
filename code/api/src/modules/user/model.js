@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     },
     shippingAddress: {
-      type: DataTypes.DATEONLY
+      type: DataTypes.STRING
     },
     shipDate: {
       type: DataTypes.DATEONLY
