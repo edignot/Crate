@@ -32,30 +32,25 @@ export function login(userCredentials, isLoading = true) {
       type: LOGIN_REQUEST,
       isLoading,
     })
-
     return axios
       .post(
         routeApi,
         query({
           operation: 'userLogin',
           variables: userCredentials,
-          fields: ['user {name, email,role }', 'token'],
+          fields: ['user { id, name, email, shippingAddress, description, role }', 'token'],
         })
       )
       .then((response) => {
         let error = ''
-
         if (response.data.errors && response.data.errors.length > 0) {
           error = response.data.errors[0].message
         } else if (response.data.data.userLogin.token !== '') {
           const token = response.data.data.userLogin.token
           const user = response.data.data.userLogin.user
-
           dispatch(setUser(token, user))
-
           loginSetUserLocalStorageAndCookie(token, user)
         }
-
         dispatch({
           type: LOGIN_RESPONSE,
           error,
@@ -67,6 +62,47 @@ export function login(userCredentials, isLoading = true) {
           error: 'Please try again',
         })
       })
+  }
+}
+
+export function updateUser(userDetails) {
+  return dispatch => {
+    return axios
+      .post(
+        routeApi,
+        mutation({
+          operation: 'userUpdate',
+          variables: userDetails,
+          fields: ['id', 'name', 'email', 'shippingAddress', 'description', 'role'],
+        })
+      )
+      .then((response) => {
+        let error = '';
+        console.log(response, 'RESPONSE')
+  
+        // if (response.data.errors && response.data.errors.length > 0) {
+        //   error = response.data.errors[0].message;
+        // } else if (response.data.data.userLogin.token !== '') {
+          const token = window.localStorage.getItem('token');
+          const user = response.data.data.userUpdate;
+          
+          dispatch(setUser(token, user));
+  
+          // loginSetUserLocalStorageAndCookie(token, user);
+          // dispatch({
+          //   type: SET_USER,
+          //   user,
+          // });
+        // }
+  
+      })
+      .catch((error) => {
+        console.error(error)
+        // dispatch({
+        //   type: LOGIN_RESPONSE,
+        //   error: 'Please try again',
+        // });
+    });
   }
 }
 
