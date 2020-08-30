@@ -38,7 +38,7 @@ export function login(userCredentials, isLoading = true) {
         query({
           operation: 'userLogin',
           variables: userCredentials,
-          fields: ['user { id, name, email, shippingAddress, description, role }', 'token'],
+          fields: ['user { id, name, email, shippingAddress, description, role, imageUrl }', 'token'],
         })
       )
       .then((response) => {
@@ -73,28 +73,28 @@ export function updateUser(userDetails) {
         mutation({
           operation: 'userUpdate',
           variables: userDetails,
-          fields: ['id', 'name', 'email', 'shippingAddress', 'description', 'role'],
+          fields: ['id', 'name', 'email', 'shippingAddress', 'description', 'role', 'imageUrl'],
         })
       )
       .then((response) => {
         let error = '';
         console.log(response, 'RESPONSE')
-  
+
         // if (response.data.errors && response.data.errors.length > 0) {
         //   error = response.data.errors[0].message;
         // } else if (response.data.data.userLogin.token !== '') {
           const token = window.localStorage.getItem('token');
           const user = response.data.data.userUpdate;
-          
+
           dispatch(setUser(token, user));
-  
+
           // loginSetUserLocalStorageAndCookie(token, user);
           // dispatch({
           //   type: SET_USER,
           //   user,
           // });
         // }
-  
+
       })
       .catch((error) => {
         console.error(error)

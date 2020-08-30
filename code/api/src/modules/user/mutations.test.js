@@ -41,7 +41,7 @@ describe('user mutations', () => {
     const response = await request(server)
       .post('/')
       .send({ query:
-        `mutation { userUpdate(id: 2, email: "user@email.com", description: null, shippingAddress: "null") { email } }`
+        `mutation { userUpdate(id: 2, email: "user@email.com") { email } }`
       })
       .expect(200)
 
@@ -53,7 +53,7 @@ describe('user mutations', () => {
     const response = await request(server)
       .post('/')
       .send({ query:
-        `mutation { userUpdate(id: 2, email: "admin@crate.com", description: null) { email } }`
+        `mutation { userUpdate(id: 2, email: "admin@crate.com") { email } }`
       })
 
     expect(response.body.errors[0].message).toEqual(
@@ -78,7 +78,8 @@ describe('user mutations', () => {
       .post('/')
       .send({
         query:
-          'mutation { userUpdate(id: 2, email: "user@crate.com", shippingAddress: "main.st") { shippingAddress } }'
+          `mutation { userUpdate(id: 2, email: "user@crate.com",
+          shippingAddress: "main.st") { shippingAddress } }`
       })
       .expect(200)
 
@@ -86,10 +87,26 @@ describe('user mutations', () => {
     expect(test.shippingAddress).toEqual("main.st")
   })
 
+  it('can add an image', async() => {
+    const response = await request(server)
+      .post('/')
+      .send({ query:
+        `mutation { userUpdate(id: 2, email: "user@crate.com"
+        imageUrl: "/images/uploads/an_image.jpg") { imageUrl } }`})
+      .expect(200)
+
+    const test = await models.User.findByPk(2)
+    expect(test.imageUrl).toEqual("/images/uploads/an_image.jpg")
+  })
+
+  afterEach(async() => {
+    await models.User.destroy({where: { }})
+  })
+
   afterEach(async () => {
     await models.User.destroy({ where: {} })
   })
-  
+
   afterAll(() => {
     connection.close()
   })

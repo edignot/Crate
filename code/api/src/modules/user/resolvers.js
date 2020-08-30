@@ -69,18 +69,18 @@ export async function getAll() {
 }
 
 // Update
-export async function update(parentValue, { id, email, description, shippingAddress }) {
+export async function update(parentValue, { id, email, description, shippingAddress, imageUrl }) {
   const user = await models.User.findOne({ where: { email } })
   if (!user || user.id === id ) {
     await models.User.update({
       email,
       description,
-      shippingAddress
+      shippingAddress,
+      imageUrl
     }, { where: { id } })
-    return getById(parentValue, { id }
-      )
+    return await models.User.findOne({ where: { id } })
   }
-  else 
+  else
   {
     throw new Error(`The email ${ email } is already registered. Please choose another.`)
   }

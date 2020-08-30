@@ -49,6 +49,11 @@ export const userUpdate = {
     shippingAddress: {
       name: 'shippingAddress',
       type: GraphQLString
+    },
+
+    imageUrl: {
+      name: 'imageUrl',
+      type: GraphQLString
     }
   },
   resolve: update

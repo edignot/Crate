@@ -53,7 +53,7 @@ class UserInfo extends React.Component {
           this.props.messageShow('Image uploaded successfully.')
 
           let user = this.state
-          user.imageUrl = `/images/uploads/${response.data.file}`
+          user.imageUrl = `${response.data.file}`
 
           this.setState({
             ...user,
@@ -70,9 +70,6 @@ class UserInfo extends React.Component {
           this.props.messageHide()
         }, 5000)
       })
-  
-        this.props.updateUser(user)
-        this.toggleEdit()
     }
 
 
@@ -94,8 +91,8 @@ class UserInfo extends React.Component {
       id: this.props.user.details.id,
       email: this.state.emailInput,
       description: this.state.userDescription,
-      shippingAddress: this.state.shippingAddressInput
-      // imageUrl: this.state.imageUrl 
+      shippingAddress: this.state.shippingAddressInput,
+      imageUrl: this.state.imageUrl
     }
     this.props.updateUser(user)
     this.toggleEdit()
@@ -163,7 +160,7 @@ class UserInfo extends React.Component {
       </section>
     )
   }
-  
+
   renderInfo = () => {
     return (
       <section style={infoContainer}>
@@ -199,7 +196,7 @@ class UserInfo extends React.Component {
       </section>
     )
   }
-  
+
   render() {
     return (
       <section style={style}>
