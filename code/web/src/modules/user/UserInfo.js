@@ -70,9 +70,6 @@ class UserInfo extends React.Component {
           this.props.messageHide()
         }, 5000)
       })
-  
-        this.props.updateUser(user)
-        this.toggleEdit()
     }
 
 
